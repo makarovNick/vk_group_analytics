@@ -10,7 +10,7 @@ def vk_request(method, **kwargs):
     result = response.json()
     if 'error' in result:
         raise Exception(result['error']['error_msg'])
-    return response.json()
+    return result
 
 def get_group_posts(group_id, count=100, offset=0):
     '''Возвращает список записей со стены пользователя или сообщества. vk.api : wall.get'''
