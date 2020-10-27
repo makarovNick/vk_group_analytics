@@ -12,6 +12,15 @@ def vk_request(method, **kwargs):
         raise Exception(result['error']['error_msg'])
     return response.json()
 
+def get_group_info(group_id, fields = []):
+    response = vk_request('groups.getById', 
+                              access_token = VK_ACCESS_TOKEN,
+                              fields = ','.join(fields),
+                              group_id = group_id,
+                              v = VK_API_VERSION)
+
+    return response['response']
+
 def get_group_posts(group_id, count=100, offset=0):
     '''Возвращает список записей со стены пользователя или сообщества. vk.api : wall.get'''
     current_count = 0
@@ -42,13 +51,58 @@ def get_group_id(screen_name):
                               screen_name = screen_name,
                               v = VK_API_VERSION)
 
-    if len(response['response']) == 0:
-        raise Exception(f'No group or user with screen_name : {screen_name}')
+    # if len(response['response']) == 0:
+    #     raise Exception(f'No group or user with screen_name : {screen_name}')
 #     elif response['response']['type'] == 'user':
 #         raise Exception(f'{screen_name} is user')
     return response['response']['object_id']
 
-def get_group_members(group_id, count = 1000, offset=0, sort='id_asc', fields=[]):
+def get_group_members_2(group_id, count = -1, offset=0, fields=[]):
+    ''' get_group_members на  VKscripts '''
+    max_api_calls = 25 # Внутри code может содержаться не более 25 обращений к методам API.
+    if len(fields) > 7:
+        max_api_calls = 20
+    if len(fields) > 3:
+        max_api_calls = 22 # API ограничивает память
+    
+
+    members = []    
+    
+    if count == -1:
+        count = get_group_info(group_id, fields = ['members_count'])[0]['members_count']
+    for j in range(0, count, max_api_calls * 1000):
+        code = f'''
+            var offset = {offset};
+            var i = 0;
+            var p= [];
+            var temp = 1001;
+            while (offset < {count} && i < {max_api_calls})
+            {{
+                if ({count} - offset > 1000)
+                {{
+                    temp = 1000;
+                }}
+                else
+                {{
+                    temp = {count} - offset;
+                }}
+                p = p + [API.groups.getMembers({{group_id:{group_id},offset:offset,count:temp,fields:{fields}}})];
+                offset = offset + temp;
+                i = i + 1;
+            }}
+            return p;'''
+        response = vk_request('execute',
+                           code = code,
+                           access_token = VK_ACCESS_TOKEN,
+                           v = VK_API_VERSION)
+        offset += 1000 * max_api_calls
+        
+        for r in response['response']:
+            members.extend(r['items'])
+        
+    return members
+
+def get_group_members(group_id, count = -1, offset=0, fields=[]):
     '''Возвращает список участников сообщества. vk.api : groups.getMembers
     count -- количество участников сообщества, информацию о которых необходимо получить. -1 - все
     sort -- сортировка, с которой необходимо вернуть список участников. Может принимать значения
@@ -70,7 +124,6 @@ def get_group_members(group_id, count = 1000, offset=0, sort='id_asc', fields=[]
                            group_id = group_id, 
                            count = min(count - current_count, 1000), 
                            access_token = VK_ACCESS_TOKEN,
-                           sort = sort,
                            fields = ','.join(fields),
                            offset = offset + current_count,
                            v = VK_API_VERSION)
@@ -90,7 +143,7 @@ def parse_post(post_json):
          'text' :           post_json['text']              if 'text'          in post_json else None, 
          'is_add' :         post_json['marked_as_ads']     if 'marked_as_ads' in post_json else '0',  
          'comments_count' : post_json['comments']['count'] if 'comments'      in post_json else None,
-         'likes_count' :    post_json['comments']['count'] if 'comments'      in post_json else '0',
+         'likes_count' :    post_json['likes']['count']    if 'likes'         in post_json else '0',
          'reposts_count' :  post_json['reposts']['count']  if 'reposts'       in post_json else '0',
          'views_count' :    post_json['views']['count']    if 'views'         in post_json else '0',
          'attachments' :    
@@ -102,26 +155,27 @@ def parse_post(post_json):
 def parse_user(user_json):
     user = {}
     user.update({
-        'first_name' : user_json['first_name'],
-        'last_name' : user_json['last_name'],
-        'sex' : user_json['sex'] if 'sex' in user_json else None,
-#         'bdate' : user_json['bdate'] if 'bdate' in user_json else None ,
-        'years_old' : parse_years_old(user_json['bdate']) if 'bdate' in user_json else None,
-        'city' : user_json['city']['title'] if 'city' in user_json else None,
-        'country' : user_json['country']['title'] if 'country' in user_json else None,
-        'last_seen' : user_json['last_seen']['time'] if 'last_seen' in user_json else None,
+        'id' :              user_json['id']                if 'id'         in user_json else None,
+        'first_name' :      user_json['first_name']        if 'first_name' in user_json else None,
+        'last_name' :       user_json['last_name']         if 'last_name'  in user_json else None,
+        'sex' :             user_json['sex']               if 'sex'        in user_json else None,
+        'bdate' :           user_json['bdate']             if 'bdate'      in user_json else None,
+        'years_old' :  parse_years_old(user_json['bdate']) if 'bdate'      in user_json else None,
+        'city' :            user_json['city']['title']     if 'city'       in user_json else None,
+        'country' :         user_json['country']['title']  if 'country'    in user_json else None,
+        'last_seen' :       user_json['last_seen']['time'] if 'last_seen'  in user_json else None,
     })
     
     return user
 
 def parse_attachment(attachment_json):
     '''Возвращает тип вложения. TODO'''
-    attachment = {}
-    attachment.update({
-        'type' : attachment_json['type'],
-    })
+    # attachment = {}
+    # attachment.update({
+    #     'type' : attachment_json['type'],
+    # })
     
-    return attachment
+    return attachment_json['type']
 
 def parse_years_old(date):
     '''Возвращает возраст пользователся в годах или '' '''
