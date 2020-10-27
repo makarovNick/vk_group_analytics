@@ -10,7 +10,7 @@ def vk_request(method, **kwargs):
     result = response.json()
     if 'error' in result:
         raise Exception(result['error']['error_msg'])
-    return response.json()
+    return result
 
 def get_group_info(group_id, fields = []):
     response = vk_request('groups.getById', 
