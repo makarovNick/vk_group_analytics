@@ -1,3 +1,6 @@
+
+from rich.progress import track
+
 from config import VK_API_VERSION, VK_ACCESS_TOKEN
 import json
 import time
@@ -19,7 +22,7 @@ def get_group_info(group_id, fields = []):
                               group_id = group_id,
                               v = VK_API_VERSION)
 
-    return response['response']
+    return response['response'][0]
 
 def get_group_posts(group_id, count=100, offset=0):
     '''Возвращает список записей со стены пользователя или сообщества. vk.api : wall.get'''
@@ -69,8 +72,8 @@ def get_group_members_2(group_id, count = -1, offset=0, fields=[]):
     members = []    
     
     if count == -1:
-        count = get_group_info(group_id, fields = ['members_count'])[0]['members_count']
-    for j in range(0, count, max_api_calls * 1000):
+        count = get_group_info(group_id, fields = ['members_count'])['members_count']
+    for _ in track(range(0, count, max_api_calls * 1000), description="Requesting members..."):
         code = f'''
             var offset = {offset};
             var i = 0;
