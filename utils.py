@@ -1,11 +1,24 @@
-
 from rich.progress import track
+from tqdm import tqdm
 
 from config import VK_API_VERSION, VK_ACCESS_TOKEN
 import json
-import time
-from datetime import datetime
+from datetime import datetime, timedelta
 import requests
+
+def get_group_stats(group_id, timestamp_from, timestamp_to=datetime.timestamp(datetime.today()), stats_groups=[]):
+    try:
+        response = vk_request('stats.get', 
+                group_id=group_id,
+                timestamp_from = timestamp_from,
+                timestamp_to = timestamp_to,
+                stats_groups = stats_groups,
+                access_token = VK_ACCESS_TOKEN,
+                v = VK_API_VERSION)
+    except:
+        response = {'response' : None} # no access
+
+    return response['response']
 
 def vk_request(method, **kwargs):
     '''VK API'''
@@ -13,6 +26,7 @@ def vk_request(method, **kwargs):
     result = response.json()
     if 'error' in result:
         raise Exception(result['error']['error_msg'])
+
     return result
 
 def get_group_info(group_id, fields = []):
@@ -54,26 +68,26 @@ def get_group_id(screen_name):
                               screen_name = screen_name,
                               v = VK_API_VERSION)
 
-    # if len(response['response']) == 0:
-    #     raise Exception(f'No group or user with screen_name : {screen_name}')
-#     elif response['response']['type'] == 'user':
-#         raise Exception(f'{screen_name} is user')
     return response['response']['object_id']
 
 def get_group_members_2(group_id, count = -1, offset=0, fields=[]):
-    ''' get_group_members на  VKscripts '''
+    '''Возвращает список участников сообщества. vk.api : groups.getMembers
+    count -- количество участников сообщества, информацию о которых необходимо получить. -1 - все
+    sort -- сортировка, с которой необходимо вернуть список участников. Может принимать значения
+    offset -- смещение, необходимое для выборки определенного подмножества участников. 
+    fields -- список дополнительных полей, которые необходимо вернуть.
+    '''
     max_api_calls = 25 # Внутри code может содержаться не более 25 обращений к методам API.
     if len(fields) > 7:
         max_api_calls = 20
     if len(fields) > 3:
         max_api_calls = 22 # API ограничивает память
-    
 
     members = []    
     
     if count == -1:
         count = get_group_info(group_id, fields = ['members_count'])['members_count']
-    for _ in track(range(0, count, max_api_calls * 1000), description="Requesting members..."):
+    for _ in tqdm(range(0, count, max_api_calls * 1000), desc="Requesting members..."):
         code = f'''
             var offset = {offset};
             var i = 0;
@@ -105,85 +119,24 @@ def get_group_members_2(group_id, count = -1, offset=0, fields=[]):
         
     return members
 
-def get_group_members(group_id, count = -1, offset=0, fields=[]):
-    '''Возвращает список участников сообщества. vk.api : groups.getMembers
-    count -- количество участников сообщества, информацию о которых необходимо получить. -1 - все
-    sort -- сортировка, с которой необходимо вернуть список участников. Может принимать значения
-    offset -- смещение, необходимое для выборки определенного подмножества участников. 
-    fields -- список дополнительных полей, которые необходимо вернуть.
-    '''
-    current_count = 0
-    members = []
-    if count == -1:
-        response = vk_request('groups.getMembers', 
-                   group_id = group_id, 
-                   count = 0, 
-                   access_token = VK_ACCESS_TOKEN,
-                   v = VK_API_VERSION)
-        count = response['response']['count']
+def inactive_users(users, days=31):
+    date_N_days_ago = int((datetime.now() - timedelta(days=days)).timestamp())
+    return users.loc[users.last_seen < date_N_days_ago].shape[0]
 
-    while current_count < count:
-        response = vk_request('groups.getMembers', 
-                           group_id = group_id, 
-                           count = min(count - current_count, 1000), 
-                           access_token = VK_ACCESS_TOKEN,
-                           fields = ','.join(fields),
-                           offset = offset + current_count,
-                           v = VK_API_VERSION)
-        
-        # print(current_count)
-        members.extend(response['response']['items'])
+def posts_per_day(group_id, days=7):
+    limit = int((datetime.today() - timedelta(days=days)).timestamp())
+    offset = 100
+    posts = get_group_posts(group_id)
+    while True:
+        temp = get_group_posts(group_id, offset = offset)
+        if len(temp) == 0:
+            break
+        posts.extend(temp)
+        if posts[-1]['date'] < limit:
+            break
+        offset += len(temp)
 
-        current_count += min(count - current_count, 1000)
-#         time.sleep(0.2) # (VK api doc) Если приложение установило меньше 10 000 человек, то можно совершать 5 запросов в секунду
-        
-    return members
-
-def parse_post(post_json):
-    post = {}
-    post.update({
-         'date' :           post_json['date']              if 'date'          in post_json else None, 
-         'text' :           post_json['text']              if 'text'          in post_json else None, 
-         'is_add' :         post_json['marked_as_ads']     if 'marked_as_ads' in post_json else '0',  
-         'comments_count' : post_json['comments']['count'] if 'comments'      in post_json else None,
-         'likes_count' :    post_json['likes']['count']    if 'likes'         in post_json else '0',
-         'reposts_count' :  post_json['reposts']['count']  if 'reposts'       in post_json else '0',
-         'views_count' :    post_json['views']['count']    if 'views'         in post_json else '0',
-         'attachments' :    
-[parse_attachment(a) for a in post_json['attachments']]    if 'attachments'   in post_json else [],
-    })
+    while len(posts) != 0 and posts[-1]['date'] < limit:
+        posts.pop()
     
-    return post
-
-def parse_user(user_json):
-    user = {}
-    user.update({
-        'id' :              user_json['id']                if 'id'         in user_json else None,
-        'first_name' :      user_json['first_name']        if 'first_name' in user_json else None,
-        'last_name' :       user_json['last_name']         if 'last_name'  in user_json else None,
-        'sex' :             user_json['sex']               if 'sex'        in user_json else None,
-        'bdate' :           user_json['bdate']             if 'bdate'      in user_json else None,
-        'years_old' :  parse_years_old(user_json['bdate']) if 'bdate'      in user_json else None,
-        'city' :            user_json['city']['title']     if 'city'       in user_json else None,
-        'country' :         user_json['country']['title']  if 'country'    in user_json else None,
-        'last_seen' :       user_json['last_seen']['time'] if 'last_seen'  in user_json else None,
-    })
-    
-    return user
-
-def parse_attachment(attachment_json):
-    '''Возвращает тип вложения. TODO'''
-    # attachment = {}
-    # attachment.update({
-    #     'type' : attachment_json['type'],
-    # })
-    
-    return attachment_json['type']
-
-def parse_years_old(date):
-    '''Возвращает возраст пользователся в годах или '' '''
-    date = date.split('.')
-    if len(date) != 3:
-        return None
-    else:
-        return datetime.today().year - int(date[2])
+    return len(posts) / days
