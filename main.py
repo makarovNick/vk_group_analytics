@@ -15,7 +15,7 @@ def main():
     ids = list(map(get_group_id, groups))
 
     fields = ['sex', 'bdate', 'city', 'country', 'online', 'education', 'last_seen']
-    users = [list(map(parse_user, get_group_members_2(g, count=-1, fields=fields))) for g in ids]
+    users = [list(map(parse_user, get_group_members(g, count=-1, fields=fields))) for g in ids]
     dfs = list(map(pd.DataFrame, users))
     fields = ['status', 'start_date', 'members_count', 'description', 'counters', 'country', 'activity']
     infos = [get_group_info(id, fields) for id in ids]
