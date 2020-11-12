@@ -1,3 +1,8 @@
+import tracemalloc
+
+tracemalloc.start()
+
+
 from config import VK_API_VERSION, VK_ACCESS_TOKEN
 from datetime import datetime, timedelta
 from rich.progress import track
@@ -8,6 +13,8 @@ import asyncio
 import pandas as pd
 import time
 import json
+
+asyncio.coroutines._DEBUG = True
 
 class VKException(Exception):
     '''Ошибка VKAPI'''
@@ -39,12 +46,12 @@ async def async_vk_request(method, session, **kwargs):
 
     if 'error' in result:
         raise VKBadRequest(result['error']['error_msg'])
-    
+
     if 'execute_errors' in result:
         if result['execute_errors'][0]['error_code'] in [ACCESS_DENIED, GROUP_BLOCKED]:
             raise VKGroupError(result['execute_errors'][0]['error_msg'])
         raise VKBadRequest(result['execute_errors'][0]['error_msg'])
-        
+
     return result
 
 async def __async_get_members(group_id, session, count, offset=0, fields=[]):
@@ -54,7 +61,7 @@ async def __async_get_members(group_id, session, count, offset=0, fields=[]):
     if len(fields) > 3:
         max_api_calls = 22 # API ограничивает длину request URI
 
-    members = []    
+    members = []
 
     code = f'''
         var offset = {offset};
@@ -84,7 +91,8 @@ async def __async_get_members(group_id, session, count, offset=0, fields=[]):
                            v = VK_API_VERSION)
     except VKBadRequest as e:
         print('EXCEPTION : ', e)
-        time.sleep(2) # crutch
+        # time.sleep(2) # crutch
+        await asyncio.sleep(2)
         response = await async_vk_request('execute',
                            session,
                            code = code,
@@ -93,7 +101,7 @@ async def __async_get_members(group_id, session, count, offset=0, fields=[]):
 
     for r in response['response']:
         members.extend(r['items'])
-        
+
     return members
 
 async def async_get_members(group_id, count = -1, offset=0, fields=[]):
@@ -105,27 +113,25 @@ async def async_get_members(group_id, count = -1, offset=0, fields=[]):
     if len(fields) > 3:
         req_per_sec = 4
         max_api_calls = 22
-
     COUNT_AT_TIME = max_api_calls * req_per_sec * 1000
     members = []
     if count == -1:
         count = get_group_info(group_id, fields = ['members_count'])['members_count']
-    
     async with aiohttp.ClientSession() as session:
         for j in track(range(0, count, COUNT_AT_TIME)):
             members.extend(await asyncio.gather(
-                *[__async_get_members(group_id, session, count = count, offset=i, fields=fields) for i in range(j, min(count, j + COUNT_AT_TIME), max_api_calls * 1000)]
+                *[await __async_get_members(group_id, session, count = count, offset=i, fields=fields) for i in range(j, min(count, j + COUNT_AT_TIME), max_api_calls * 1000)]
             ))
-            time.sleep(1) # just to be sure...
-        
+            # time.sleep(1) # just to be sure...
+            await asyncio.sleep(1)
     members = [item for sublist in members for item in sublist]
-    
+
     return members
 
 
 def get_group_stats(group_id, timestamp_from, timestamp_to=datetime.timestamp(datetime.today()), stats_groups=[]):
     try:
-        response = vk_request('stats.get', 
+        response = vk_request('stats.get',
                 group_id=group_id,
                 timestamp_from = timestamp_from,
                 timestamp_to = timestamp_to,
@@ -133,7 +139,7 @@ def get_group_stats(group_id, timestamp_from, timestamp_to=datetime.timestamp(da
                 access_token = VK_ACCESS_TOKEN,
                 v = VK_API_VERSION)
     except:
-        response = {'response' : None} # no access
+        return [] # no access
 
     return response['response']
 
@@ -150,17 +156,17 @@ def vk_request(method, **kwargs):
 
     if 'error' in result:
         raise VKBadRequest(result['error']['error_msg'])
-    
+
     if 'execute_errors' in result:
         if result['execute_errors'][0]['error_code'] in [ACCESS_DENIED, GROUP_BLOCKED]:
             raise VKGroupError(result['execute_errors'][0]['error_msg'])
         raise VKBadRequest(result['execute_errors'][0]['error_msg'])
-            
+
     return result
 
 
 def get_group_info(group_id, fields = []):
-    response = vk_request('groups.getById', 
+    response = vk_request('groups.getById',
                               access_token = VK_ACCESS_TOKEN,
                               fields = ','.join(fields),
                               group_id = group_id,
@@ -173,10 +179,10 @@ def get_group_posts(group_id, count=100, offset=0):
     current_count = 0
     posts = []
     while current_count < count:
-        response = vk_request('wall.get', 
-                           owner_id = f'-{group_id}', 
-                           count = min(count - current_count, 100), 
-                           access_token = VK_ACCESS_TOKEN, 
+        response = vk_request('wall.get',
+                           owner_id = f'-{group_id}',
+                           count = min(count - current_count, 100),
+                           access_token = VK_ACCESS_TOKEN,
                            offset = offset + current_count,
                            filter = 'owner',
                            extended = 0,
@@ -185,15 +191,15 @@ def get_group_posts(group_id, count=100, offset=0):
             break
 
         posts.extend(response['response']['items'])
-        
+
         current_count += 100
-        
+
     return posts
 
 def get_group_id(screen_name):
     '''Определяет тип объекта (пользователь, сообщество, приложение) и его идентификатор по короткому имени screen_name.
     vk.api : utils.resolveScreenName'''
-    response = vk_request('utils.resolveScreenName', 
+    response = vk_request('utils.resolveScreenName',
                               access_token = VK_ACCESS_TOKEN,
                               screen_name = screen_name,
                               v = VK_API_VERSION)
@@ -204,7 +210,7 @@ def get_group_members(group_id, count = -1, offset=0, fields=[]):
     '''Возвращает список участников сообщества. vk.api : groups.getMembers
     count -- количество участников сообщества, информацию о которых необходимо получить. -1 - все
     sort -- сортировка, с которой необходимо вернуть список участников. Может принимать значения
-    offset -- смещение, необходимое для выборки определенного подмножества участников. 
+    offset -- смещение, необходимое для выборки определенного подмножества участников.
     fields -- список дополнительных полей, которые необходимо вернуть.
     '''
     max_api_calls = 25 # Внутри code может содержаться не более 25 обращений к методам API.
@@ -213,8 +219,8 @@ def get_group_members(group_id, count = -1, offset=0, fields=[]):
     if len(fields) > 3:
         max_api_calls = 22 # API ограничивает память
 
-    members = []    
-    
+    members = []
+
     if count == -1:
         count = get_group_info(group_id, fields = ['members_count'])['members_count']
     for _ in track(range(0, count, max_api_calls * 1000), description="Requesting members..."):
@@ -243,14 +249,14 @@ def get_group_members(group_id, count = -1, offset=0, fields=[]):
                            access_token = VK_ACCESS_TOKEN,
                            v = VK_API_VERSION)
         offset += 1000 * max_api_calls
-        
+
         for r in response['response']:
             members.extend(r['items'])
-        
+
     return members
 
 def get_users_info(user_ids, fields=[]):
-    max_count = 514 # ограничение request URI 
+    max_count = 500 # ограничение request URI
     if len(fields) < 8:
         max_count = 400
 
@@ -263,7 +269,7 @@ def get_users_info(user_ids, fields=[]):
                                fields=fields)
         users_info.extend(response['response'])
         time.sleep(0.1)
-        
+
     return users_info
 
 def inactive_users(users, days=31):
@@ -285,5 +291,5 @@ def posts_per_day(group_id, days=7):
 
     while len(posts) != 0 and posts[-1]['date'] < limit:
         posts.pop()
-    
+
     return len(posts) / days
