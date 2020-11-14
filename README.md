@@ -45,3 +45,9 @@ RU_visitors
 ```
 
 ## WEBUI
+
+![webui](/images/webui.png)
+
+## GROUP GRAPH
+
+![group graph](/images/graph.png)
