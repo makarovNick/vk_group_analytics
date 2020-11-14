@@ -1,17 +1,18 @@
-import warnings
-warnings.filterwarnings("ignore")
-
-from webui import make_dash
-import termplotlib as tpl
-import numpy as np
 from utils import *
 from parser import *
+
+from datetime import datetime, timedelta
 from rich.console import Console
 from rich.table import Table
-from datetime import datetime, timedelta
-import argparse
-import pandas as pd
+from webui import make_dash
+import termplotlib as tpl
 from time import sleep
+import pandas as pd
+import numpy as np
+import argparse
+import warnings
+
+warnings.filterwarnings("ignore")
 
 async def get_members_stats(groups_id
                     , members_count=False
@@ -190,25 +191,25 @@ def draw_table(groups, *stats):
 
 def draw_plot(x, y, label=None, x_label=None, y_label=None):
     fig = tpl.figure()
-    fig.plot(x=x, y=y, width=80, height=30, ylim=[0, max(y) + 100], xlabel=x_label, extra_gnuplot_arguments=f'set y2label "{y_label}"')
+    fig.plot(x=x, y=y, width=60, height=20, ylim=[0, max(y) + 100], xlabel=x_label, extra_gnuplot_arguments=f'set y2label "{y_label}"')
     fig.show()
 
 async def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--groups', action='store', type=str, nargs='+')
-    parser.add_argument('-w', '--web', help='Generate interactive html', action='store_true')
+    parser.add_argument('-w', '--web', help='Generate interactive web ui', action='store_true')
     args = parser.parse_args()
     groups = args.groups
     web = args.web
 
     ids = list(map(get_group_id, groups))
 
-    members_stat = await get_members_stats(ids,
-                                      members_count=False, 
-                                      mean_age=False, 
-                                      inactive_users=False,
-                                      common_users=False)
+    members_stats = await get_members_stats(ids,
+                                      members_count=True, 
+                                      mean_age=True, 
+                                      inactive_users=True,
+                                      common_users=True)
     
     post_stats = get_posts_stats(ids, 
                                  posts_per_day=True, 
@@ -237,7 +238,7 @@ async def main():
                   , _30_35_visitors=False
                   , _35_45_visitors=False
                   , _45_100_visitors=False
-                  , RU_visitors=False
+                  , RU_visitors=True
                   , NOTRU_visitors=False
                   , f_reach=False
                   , m_reach=False
@@ -252,12 +253,12 @@ async def main():
                   , NOTRU_reach=False)
 
     if not web:
-        draw_table(groups, post_stats, info_stats)
-        # date_N_days_ago = int((datetime.now() - timedelta(days=3)).timestamp())
-        # stats = [parse_stats(get_group_stats(id, date_N_days_ago)) for id in ids]
-        # draw_plot(list(range(3)), [a['likes'] for a in stats[0]], x_label="days_ago", label="likes daily", y_label='likes')
+        draw_table(groups, post_stats, members_stats, info_stats)
+        date_N_days_ago = int((datetime.now() - timedelta(days=3)).timestamp())
+        stats = [parse_stats(get_group_stats(id, date_N_days_ago)) for id in ids]
+        draw_plot(list(range(3)), [a['likes'] for a in stats[0]], x_label="days_ago", label="likes daily", y_label='likes')
     else:
-        make_dash(groups, post_stats=post_stats, member_stats=members_stat, info_stats=info_stats)
+        make_dash(groups, post_stats=post_stats, member_stats=members_stats, info_stats=info_stats)
 
 
 

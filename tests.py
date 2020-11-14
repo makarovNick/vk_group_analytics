@@ -11,7 +11,7 @@ class SmallGroupTest(unittest.TestCase):
     def test_posts(self):
         posts = get_group_posts(group_id)
         self.assertEqual(len(posts), 3)
-        self.assertEqual(posts[0]['text'][:100],'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ')
+        self.assertEqual(posts[0]['text'][:100], 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ')
         self.assertEqual(posts[1]['attachments'][0]['type'], 'video')
         self.assertEqual(posts[2]['attachments'][0]['type'], 'photo')
 

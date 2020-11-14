@@ -1,13 +1,14 @@
 from utils import get_group_stats, get_group_id
 from parser import parse_stats
-import dash
+
+from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
-import plotly.graph_objects as go
 from datetime import datetime, timedelta
+import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
+import dash
 
 def make_dash(groups, post_stats = None, member_stats = None, info_stats = None):
     external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
