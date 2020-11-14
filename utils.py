@@ -119,9 +119,12 @@ async def async_get_members(group_id, count = -1, offset=0, fields=[]):
         count = get_group_info(group_id, fields = ['members_count'])['members_count']
     async with aiohttp.ClientSession() as session:
         for j in track(range(0, count, COUNT_AT_TIME)):
-            members.extend(await asyncio.gather(
-                *[await __async_get_members(group_id, session, count = count, offset=i, fields=fields) for i in range(j, min(count, j + COUNT_AT_TIME), max_api_calls * 1000)]
-            ))
+            try:
+                members.extend(await asyncio.gather(
+                    *[__async_get_members(group_id, session, count = count, offset=i, fields=fields) for i in range(j, min(count, j + COUNT_AT_TIME), max_api_calls * 1000)]
+                ))
+            except RuntimeError:
+                pass
             # time.sleep(1) # just to be sure...
             await asyncio.sleep(1)
     members = [item for sublist in members for item in sublist]
@@ -129,13 +132,12 @@ async def async_get_members(group_id, count = -1, offset=0, fields=[]):
     return members
 
 
-def get_group_stats(group_id, timestamp_from, timestamp_to=datetime.timestamp(datetime.today()), stats_groups=[]):
+def get_group_stats(group_id, timestamp_from, timestamp_to=datetime.timestamp(datetime.today())):
     try:
         response = vk_request('stats.get',
                 group_id=group_id,
                 timestamp_from = timestamp_from,
                 timestamp_to = timestamp_to,
-                stats_groups = stats_groups,
                 access_token = VK_ACCESS_TOKEN,
                 v = VK_API_VERSION)
     except:
@@ -184,13 +186,13 @@ def get_group_posts(group_id, count=100, offset=0):
                            count = min(count - current_count, 100),
                            access_token = VK_ACCESS_TOKEN,
                            offset = offset + current_count,
-                           filter = 'owner',
+                        #    filter = 'owner',
                            extended = 0,
                            v = VK_API_VERSION)
+        posts.extend(response['response']['items'])
         if response['response']['count'] < 100:
             break
 
-        posts.extend(response['response']['items'])
 
         current_count += 100
 
@@ -271,25 +273,3 @@ def get_users_info(user_ids, fields=[]):
         time.sleep(0.1)
 
     return users_info
-
-def inactive_users(users, days=31):
-    date_N_days_ago = int((datetime.now() - timedelta(days=days)).timestamp())
-    return users.loc[users.last_seen < date_N_days_ago].shape[0]
-
-def posts_per_day(group_id, days=7):
-    limit = int((datetime.today() - timedelta(days=days)).timestamp())
-    offset = 100
-    posts = get_group_posts(group_id)
-    while True:
-        temp = get_group_posts(group_id, offset = offset)
-        if len(temp) == 0:
-            break
-        posts.extend(temp)
-        if posts[-1]['date'] < limit:
-            break
-        offset += len(temp)
-
-    while len(posts) != 0 and posts[-1]['date'] < limit:
-        posts.pop()
-
-    return len(posts) / days

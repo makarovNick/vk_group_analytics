@@ -6,7 +6,7 @@ def parse_attachment(attachment_json):
 
     return attachment_json['type']
 
-def parse_years_old(date):
+def parse_age(date):
     '''Возвращает возраст пользователся в годах или '' '''
     if date is None:
         return None
@@ -37,7 +37,7 @@ def parse_user(user_json):
         'last_name' :       user_json.get('last_name'),
         'sex' :             user_json.get('sex'),
         'bdate' :           user_json.get('bdate'),
-        'years_old' :       parse_years_old(user_json.get('bdate')),
+        'age' :             parse_age(user_json.get('bdate')),
         'city' :            user_json.get('city', {}).get('title'),
         'country' :         user_json.get('country', {}).get('title'),
         'last_seen' :       user_json.get('last_seen', {}).get('time'),
