@@ -47,4 +47,7 @@ RU_visitors
 ## WEBUI
 
 ![webui](/images/webui.png)
-Format: ![Alt Text](url)
+
+## GROUP GRAPH
+
+![group graph](/images/graph.png)
