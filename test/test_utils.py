@@ -2,6 +2,7 @@ from tools.utils import (get_group_id,
                          get_group_posts, 
                          get_group_info, 
                          get_group_stats,
+                         date_n_days_ago,
                          get_group_members)
 import unittest
 
@@ -26,7 +27,7 @@ class SmallGroupTest(unittest.TestCase):
         self.assertEqual(info['country']['title'], 'Россия')
 
     def test_stats(self):
-        stats = get_group_stats(get_group_id('memes'), int((datetime.datetime.now() - datetime.timedelta(days=2)).timestamp()))
+        stats = get_group_stats(get_group_id('memes'), date_n_days_ago(2).timestamp())
         self.assertEqual(len(stats), 2)
         self.assertGreater(stats[0]['reach']['reach'], stats[0]['reach']['mobile_reach'])
 
