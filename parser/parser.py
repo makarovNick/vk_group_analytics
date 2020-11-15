@@ -45,8 +45,8 @@ def parse_user(user_json):
 
     return user
 
-def parse_stats(activities):
-    if len(activities) == 0:
+def parse_stats(statistics):
+    if len(statistics) == 0:
         return [{}]
     stats = [{
         'comments'          : a['activity']['comments'],
@@ -81,7 +81,7 @@ def parse_stats(activities):
         '45-100_reach'      : a['reach']['age'][6]['count'],
         'RU_reach'          : a['reach']['countries'][0]['count'],
         'NOTRU_reach'       : sum([c['count'] for c in a['reach']['countries'][1:]])
-    } for a in activities]
+    } for a in statistics]
 
     return stats
 

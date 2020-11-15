@@ -14,6 +14,8 @@ async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--groups', action='store', type=str, nargs='+')
     parser.add_argument('-w', '--web', help='Generate interactive web ui', action='store_true')
+    # parser.add_argument('-t', '--token', help='Access token', action='store', type=str)
+
     args = parser.parse_args()
     groups = args.groups
     web = args.web
