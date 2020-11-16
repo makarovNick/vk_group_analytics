@@ -123,7 +123,7 @@ async def async_get_members(group_id, count = -1, offset=0, fields=[]):
     return members
 
 
-def get_group_stats(group_id, timestamp_from, timestamp_to=datetime.timestamp(datetime.today())):
+def get_group_stats(group_id, timestamp_from, timestamp_to=datetime.timestamp(datetime.today().replace(hour=0, minute=0, second=0, microsecond=0))):
     try:
         response = vk_request('stats.get',
                 group_id=group_id,
