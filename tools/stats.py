@@ -1,30 +1,31 @@
-from tools.utils import (date_n_days_ago, 
-                         async_get_members, 
-                         get_group_info, 
-                         get_group_stats,
-                         get_group_posts)
-from parser.parser import parse_stats, parse_user, parse_post
 import numpy as np
 import sortednp as snp
 
+from tools.utils import (date_n_days_ago,
+                         async_get_members,
+                         get_group_info,
+                         get_group_stats,
+                         get_group_posts)
+from parser.parser import parse_stats, parse_user, parse_post
 
-async def get_members_stats(groups_id
-                    , members_count=False
-                    , mean_age=False
-                    , inactive_users=False
-                    , common_users=False
-                    , n_days=7):
-    
+async def get_members_stats(groups_id,
+                            members_count=False,
+                            mean_age=False,
+                            inactive_users=False,
+                            common_users=False,
+                            n_days=7):
     stats = [{} for _ in groups_id]
-
-    fields = ['status', 'start_date', 'members_count', 'description', 'counters', 'country', 'activity']
+    fields = ['status', 'start_date', 'members_count', 
+              'description', 'counters', 'country', 'activity']
     infos = [get_group_info(id, fields) for id in groups_id]
 
-    fields = ['sex', 'bdate', 'city', 'country', 'online', 'education', 'last_seen']
+    fields = ['sex', 'bdate', 'city', 
+              'country', 'online', 'education', 'last_seen']
     members = [list(map(parse_user, await async_get_members(g, count=-1, fields=fields))) for g in groups_id]
 
     if common_users and len(groups_id) == 2:
-        stats[0]['common_users'] = len(snp.kway_intersect(np.array([i['id'] for i in members[0]]), np.array([i['id'] for i in members[1]]), assume_sorted=True))
+        stats[0]['common_users'] = len(snp.kway_intersect(np.array([i['id'] for i in members[0]]),
+                                                          np.array([i['id'] for i in members[1]])))
         stats[1]['common_users'] = stats[0]['common_users']
 
     for i in range(len(groups_id)):
@@ -33,17 +34,17 @@ async def get_members_stats(groups_id
         if mean_age:
             stats[i]['mean_age'] = np.mean([m['age'] for m in members[i] if m['age'] is not None])
         if inactive_users:
-            date_N_days_ago = date_n_days_ago(n_days).timestamp()
-            stats[i]['inactive_users'] = sum(t['last_seen'] < date_N_days_ago for t in members[i] if t['last_seen'] is not None)
+            stats[i]['inactive_users'] = sum(t['last_seen'] < date_n_days_ago(n_days).timestamp() 
+                                             for t in members[i] if t['last_seen'] is not None)
 
     return stats
 
-def get_posts_stats(groups_id
-                  , posts_per_day=False
-                  , views_per_post=False
-                  , likes_per_post=False
-                  , n_posts=100
-                  , n_days=7):
+def get_posts_stats(groups_id,
+                    posts_per_day=False,
+                    views_per_post=False,
+                    likes_per_post=False,
+                    n_posts=100,
+                    n_days=7):
     stats = [{} for _ in groups_id]
     posts = [list(map(parse_post, get_group_posts(id, count=n_posts))) for id in groups_id]
     date_N_days_ago = date_n_days_ago(n_days).timestamp()
@@ -61,45 +62,45 @@ def get_posts_stats(groups_id
 
     return stats
 
-def get_info_stats(groups_id
-                  , comments=False
-                  , likes=False
-                  , subscribed=False
-                  , unsubscribed=False
-                  , total_views=False
-                  , mobile_views=False
-                  , total_visitors=False
-                  , mobile_reach=False
-                  , total_reach=False
-                  , reach_subscribers=False
-                  , f_visitors=False
-                  , m_visitors=False
-                  , _18_21_visitors=False
-                  , _21_24_visitors=False
-                  , _24_27_visitors=False
-                  , _27_30_visitors=False
-                  , _30_35_visitors=False
-                  , _35_45_visitors=False
-                  , _45_100_visitors=False
-                  , RU_visitors=False
-                  , NOTRU_visitors=False
-                  , f_reach=False
-                  , m_reach=False
-                  , _18_21_reach=False
-                  , _21_24_reach=False
-                  , _24_27_reach=False
-                  , _27_30_reach=False
-                  , _30_35_reach=False
-                  , _35_45_reach=False
-                  , _45_100_reach=False
-                  , RU_reach=False
-                  , NOTRU_reach=False
-                  , n_days=7):
+def get_info_stats(groups_id,
+                   comments=False,
+                   likes=False,
+                   subscribed=False,
+                   unsubscribed=False,
+                   total_views=False,
+                   mobile_views=False,
+                   total_visitors=False,
+                   mobile_reach=False,
+                   total_reach=False,
+                   reach_subscribers=False,
+                   f_visitors=False,
+                   m_visitors=False,
+                   _18_21_visitors=False,
+                   _21_24_visitors=False,
+                   _24_27_visitors=False,
+                   _27_30_visitors=False,
+                   _30_35_visitors=False,
+                   _35_45_visitors=False,
+                   _45_100_visitors=False,
+                   RU_visitors=False,
+                   NOTRU_visitors=False,
+                   f_reach=False,
+                   m_reach=False,
+                   _18_21_reach=False,
+                   _21_24_reach=False,
+                   _24_27_reach=False,
+                   _27_30_reach=False,
+                   _30_35_reach=False,
+                   _35_45_reach=False,
+                   _45_100_reach=False,
+                   RU_reach=False,
+                   NOTRU_reach=False,
+                   n_days=7):
     date_N_days_ago = date_n_days_ago(n_days).timestamp()
     stats = [parse_stats(get_group_stats(id, date_N_days_ago)) for id in groups_id]
     stats_ = [{} for _ in stats]
     for i in range(len(stats)):
-        if len(stats[i][0].keys()) == 0:
+        if stats[i][0].keys().empty():
             continue
         if comments:
             stats_[i]['comments'] = np.mean([a['comments'] for a in stats[i][:n_days]])
@@ -165,5 +166,5 @@ def get_info_stats(groups_id
             stats_[i]['RU_reach'] = np.mean([a['RU_reach'] for a in stats[i][:n_days]])
         if NOTRU_reach:
             stats_[i]['NOTRU_reach'] = np.mean([a['NOTRU_reach'] for a in stats[i][:n_days]])
-    
+
     return stats_

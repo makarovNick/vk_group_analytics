@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
 
 def parse_attachment(attachment_json):
@@ -13,19 +13,19 @@ def parse_age(date):
     date = date.split('.')
     if len(date) != 3:
         return None
-    else:
-        return datetime.today().year - int(date[2])
+
+    return datetime.today().year - int(date[2])
 
 def parse_post(post_json):
     post = {
-         'date' :           post_json.get('date'),
-         'text' :           post_json.get('text'),
-         'is_add' :         post_json.get('marked_as_ads'),
-         'comments_count' : post_json.get('comments', {}).get('count'),
-         'likes_count' :    post_json.get('likes', {}).get('count'),
-         'reposts_count' :  post_json.get('reposts', {}).get('count'),
-         'views_count' :    post_json.get('views', {}).get('count'),
-         'attachments' :    [parse_attachment(a) for a in post_json.get('attachments', [])],
+        'date' :           post_json.get('date'),
+        'text' :           post_json.get('text'),
+        'is_add' :         post_json.get('marked_as_ads'),
+        'comments_count' : post_json.get('comments', {}).get('count'),
+        'likes_count' :    post_json.get('likes', {}).get('count'),
+        'reposts_count' :  post_json.get('reposts', {}).get('count'),
+        'views_count' :    post_json.get('views', {}).get('count'),
+        'attachments' :    [parse_attachment(a) for a in post_json.get('attachments', [])],
     }
 
     return post
@@ -46,7 +46,7 @@ def parse_user(user_json):
     return user
 
 def parse_stats(statistics):
-    if len(statistics) == 0:
+    if statistics.empty():
         return [{}]
     stats = [{
         'comments'          : a['activity']['comments'],

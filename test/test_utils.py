@@ -1,6 +1,6 @@
-from tools.utils import (get_group_id, 
-                         get_group_posts, 
-                         get_group_info, 
+from tools.utils import (get_group_id,
+                         get_group_posts,
+                         get_group_info,
                          get_group_stats,
                          date_n_days_ago,
                          get_group_members)
@@ -12,16 +12,18 @@ group_id = 199889983
 class SmallGroupTest(unittest.TestCase):
     def test_id(self):
         self.assertEqual(get_group_id(screen_name), group_id)
-    
+
     def test_posts(self):
         posts = get_group_posts(group_id)
+        s = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore '
         self.assertEqual(len(posts), 3)
-        self.assertEqual(posts[0]['text'][:100], 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ')
+        self.assertEqual(posts[0]['text'][:100], s)
         self.assertEqual(posts[1]['attachments'][0]['type'], 'video')
         self.assertEqual(posts[2]['attachments'][0]['type'], 'photo')
 
     def test_info(self):
-        fields = ['status', 'start_date', 'members_count', 'description', 'counters', 'country', 'activity']
+        fields = ['status', 'start_date', 'members_count', 
+                  'description', 'counters', 'country', 'activity']
         info = get_group_info(group_id, fields)
         self.assertEqual(info['description'], 'description')
         self.assertEqual(info['country']['title'], 'Россия')

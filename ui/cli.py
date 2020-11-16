@@ -11,7 +11,7 @@ def draw_table(groups, *stats):
     for g in groups:
         table.add_column(g)
     for d in stats:
-        keys = sorted(d, key=lambda x:-len(x.keys()))[0].keys()
+        keys = sorted(d, key=lambda x: -len(x.keys()))[0].keys()
         for k in keys:
             table.add_row(
                 k, *[str(st.get(k, "No access")) for st in d]
@@ -20,5 +20,6 @@ def draw_table(groups, *stats):
 
 def draw_plot(x, y, label=None, x_label=None, y_label=None):
     fig = tpl.figure()
-    fig.plot(x=x, y=y, width=60, height=20, ylim=[0, max(y) + 100], xlabel=x_label, extra_gnuplot_arguments=f'set y2label "{y_label}"')
+    fig.plot(x=x, y=y, width=60, height=20, ylim=[0, max(y) + 100],
+             xlabel=x_label, extra_gnuplot_arguments=f'set y2label "{y_label}"')
     fig.show()

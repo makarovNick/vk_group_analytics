@@ -1,18 +1,21 @@
-from tools.utils import get_group_stats, get_group_id, date_n_days_ago
+from tools.utils import (get_group_stats,
+                         get_group_id,
+                         date_n_days_ago)
 from parser.parser import parse_stats
 
-from dash.dependencies import Input, Output
+from dash.dependencies import (Dash,
+                               Input,
+                               Output)
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
-import dash
 
-def make_dash(groups, post_stats = None, member_stats = None, info_stats = None):
+def make_dash(groups, post_stats=None, member_stats=None, info_stats=None):
     external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-    app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+    app = Dash(__name__, external_stylesheets=external_stylesheets)
 
     app.layout = html.Div(children=[
         html.H1(children='Сравнение групп ВК'),
@@ -65,26 +68,25 @@ def make_dash(groups, post_stats = None, member_stats = None, info_stats = None)
     @app.callback(Output('plot', 'figure'), [Input('drop', 'value'), Input('check', 'value')])
     def draw_graph(selected_type, selected_grops):
         fig = px.scatter()
-        if selected_type in ['age_visitors' , 'age_reach']:
+        if selected_type in ['age_visitors', 'age_reach']:
             fig = px.bar(hover_name=dfs[0].columns[12:19])
-            if len(selected_grops) != 0:
+            if not selected_grops.empty():
                 for group in selected_grops:
                     fig.add_bar(y=dfs[group].iloc[0, 12:19], name=groups[group])
                     fig.update_traces(marker_color=group)
-            
+
             fig.update_xaxes(title='ages')
             fig.update_yaxes(title='count')
-        
+
         else:
-            if len(selected_grops) != 0:
+            if not selected_grops.empty():
                 for group in selected_grops:
                     fig.add_scatter(y=dfs[group][selected_type], x=dfs[group].index, name=groups[group])
 
-                # fig.update
             fig.update_traces(mode='lines+markers')
             fig.update_xaxes(title='date')
             fig.update_yaxes(title=selected_type)
-        
+
         return fig
 
     app.run_server(debug=True)
@@ -94,7 +96,7 @@ def generate_table(groups, *stats):
     for d in stats:
         if d is None:
             continue
-        keys = sorted(d, key=lambda x:-len(x.keys()))[0].keys()
+        keys = sorted(d, key=lambda x: -len(x.keys()))[0].keys()
         for k in keys:
             table.append(
                 [k, *[str(st.get(k, None)) for st in d]]
