@@ -46,7 +46,7 @@ def parse_user(user_json):
     return user
 
 def parse_stats(statistics):
-    if statistics.empty():
+    if not statistics:
         return [{}]
     stats = [{
         'comments'          : a['activity']['comments'],

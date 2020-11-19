@@ -100,7 +100,7 @@ def get_info_stats(groups_id,
     stats = [parse_stats(get_group_stats(id, date_N_days_ago)) for id in groups_id]
     stats_ = [{} for _ in stats]
     for i in range(len(stats)):
-        if stats[i][0].keys().empty():
+        if not stats[i][0].keys():
             continue
         if comments:
             stats_[i]['comments'] = np.mean([a['comments'] for a in stats[i][:n_days]])

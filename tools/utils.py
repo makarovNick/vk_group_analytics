@@ -9,9 +9,6 @@ from rich.progress import track
 
 from config import VK_API_VERSION, VK_ACCESS_TOKEN
 
-
-
-
 asyncio.coroutines._DEBUG = True
 
 class VKException(Exception):
@@ -40,7 +37,7 @@ async def async_vk_request(method, session, **kwargs):
     try:
         result = json.loads(response.decode('utf-8'))
     except:
-        raise VKBadRequest(response.text)
+        raise VKBadRequest(response.decode('utf-8'))
 
     if 'error' in result:
         raise VKBadRequest(result['error']['error_msg'])
@@ -129,7 +126,7 @@ async def async_get_members(group_id, count=-1, offset=0, fields=[]):
 
 def get_group_stats(group_id,
                     timestamp_from,
-                    timestamp_to=datetime.today().replace(hour=0, minute=0, second=0, microsecond=0).timestamp())):
+                    timestamp_to=datetime.today().timestamp()):#.replace(hour=0, minute=0, second=0, microsecond=0).timestamp()):
     try:
         response = vk_request('stats.get',
                               group_id=group_id,
