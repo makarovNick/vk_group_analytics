@@ -2,9 +2,9 @@
 
 ![vk_image](/images/vk_group.png)
 
-* [Описание](##Description)
-* [Установка](##Download)
-* [Использование](##Usage)
+* [Описание](## Description)
+* [Установка](## Download)
+* [Использование](## Usage)
 
 ## Description
 
