@@ -6,8 +6,7 @@ import json
 import requests
 import aiohttp
 from rich.progress import track
-
-from config import VK_API_VERSION, VK_ACCESS_TOKEN
+from config import Config
 
 asyncio.coroutines._DEBUG = True
 
@@ -82,8 +81,8 @@ async def __async_get_members(group_id, session, count, offset=0, fields=[]):
         response = await async_vk_request('execute',
                                           session,
                                           code=code,
-                                          access_token=VK_ACCESS_TOKEN,
-                                          v=VK_API_VERSION)
+                                          access_token=Config.VK_ACCESS_TOKEN,
+                                          v=Config.VK_API_VERSION)
     except VKBadRequest as e:
         print('EXCEPTION : ', e)
         # time.sleep(2) # crutch
@@ -91,8 +90,8 @@ async def __async_get_members(group_id, session, count, offset=0, fields=[]):
         response = await async_vk_request('execute',
                                           session,
                                           code=code,
-                                          access_token=VK_ACCESS_TOKEN,
-                                          v=VK_API_VERSION)
+                                          access_token=Config.VK_ACCESS_TOKEN,
+                                          v=Config.VK_API_VERSION)
 
     for r in response['response']:
         members.extend(r['items'])
@@ -132,8 +131,8 @@ def get_group_stats(group_id,
                               group_id=group_id,
                               timestamp_from=timestamp_from,
                               timestamp_to=timestamp_to,
-                              access_token=VK_ACCESS_TOKEN,
-                              v=VK_API_VERSION)
+                              access_token=Config.VK_ACCESS_TOKEN,
+                              v=Config.VK_API_VERSION)
     except:
         return [] # no access
 
@@ -163,10 +162,10 @@ def vk_request(method, **kwargs):
 
 def get_group_info(group_id, fields=[]):
     response = vk_request('groups.getById',
-                          access_token=VK_ACCESS_TOKEN,
+                          access_token=Config.VK_ACCESS_TOKEN,
                           fields=','.join(fields),
                           group_id=group_id,
-                          v=VK_API_VERSION)
+                          v=Config.VK_API_VERSION)
 
     return response['response'][0]
 
@@ -178,11 +177,11 @@ def get_group_posts(group_id, count=100, offset=0):
         response = vk_request('wall.get',
                               owner_id=f'-{group_id}',
                               count=min(count - current_count, 100),
-                              access_token=VK_ACCESS_TOKEN,
+                              access_token=Config.VK_ACCESS_TOKEN,
                               offset=offset + current_count,
                               filter='owner',
                               extended=0,
-                              v=VK_API_VERSION)
+                              v=Config.VK_API_VERSION)
         posts.extend(response['response']['items'])
         if response['response']['count'] < 100:
             break
@@ -197,9 +196,9 @@ def get_group_id(screen_name):
         и его идентификатор по короткому имени screen_name.
     vk.api : utils.resolveScreenName'''
     response = vk_request('utils.resolveScreenName',
-                          access_token=VK_ACCESS_TOKEN,
+                          access_token=Config.VK_ACCESS_TOKEN,
                           screen_name=screen_name,
-                          v=VK_API_VERSION)
+                          v=Config.VK_API_VERSION)
 
     return response['response']['object_id']
 
@@ -243,8 +242,8 @@ def get_group_members(group_id, count=-1, offset=0, fields=[]):
             return p;'''
         response = vk_request('execute',
                               code=code,
-                              access_token=VK_ACCESS_TOKEN,
-                              v=VK_API_VERSION)
+                              access_token=Config.VK_ACCESS_TOKEN,
+                              v=Config.VK_API_VERSION)
         offset += 1000 * max_api_calls
 
         for r in response['response']:
@@ -261,8 +260,8 @@ def get_users_info(user_ids, fields=[]):
     for i in track(range(0, len(user_ids), max_count)):
         response = vk_request('users.get',
                               user_ids=','.join(list(map(str, user_ids[i:i + max_count]))),
-                              access_token=VK_ACCESS_TOKEN,
-                              v=VK_API_VERSION,
+                              access_token=Config.VK_ACCESS_TOKEN,
+                              v=Config.VK_API_VERSION,
                               fields=fields)
         users_info.extend(response['response'])
         time.sleep(0.1)

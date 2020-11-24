@@ -15,6 +15,8 @@ async def get_members_stats(groups_id,
                             common_users=False,
                             n_days=7):
     stats = [{} for _ in groups_id]
+    if not (members_count and mean_age and inactive_users and common_users):
+        return stats
     fields = ['status', 'start_date', 'members_count', 
               'description', 'counters', 'country', 'activity']
     infos = [get_group_info(id, fields) for id in groups_id]
