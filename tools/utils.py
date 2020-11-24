@@ -25,6 +25,7 @@ class VKGroupError(VKException):
 
 
 async def async_get(method, session, **kwargs):
+    '''Асинхронный гет запрос'''
     async with session.get(f'https://api.vk.com/method/{method}', params=kwargs) as response:
         return await response.read()
 
@@ -49,6 +50,7 @@ async def async_vk_request(method, session, **kwargs):
     return result
 
 async def __async_get_members(group_id, session, count, offset=0, fields=[]):
+    '''helper function'''
     max_api_calls = 25 # Внутри code может содержаться не более 25 обращений к методам API.
     if len(fields) > 7:
         max_api_calls = 20
@@ -99,6 +101,12 @@ async def __async_get_members(group_id, session, count, offset=0, fields=[]):
     return members
 
 async def async_get_members(group_id, count=-1, offset=0, fields=[]):
+    '''Асинхронно возвращает список участников сообщества. vk.api : groups.getMembers
+    count -- количество участников сообщества, информацию о которых необходимо получить. -1 - все
+    sort -- сортировка, с которой необходимо вернуть список участников. Может принимать значения
+    offset -- смещение, необходимое для выборки определенного подмножества участников.
+    fields -- список дополнительных полей, которые необходимо вернуть.
+    '''
     max_api_calls = 25 # Внутри code может содержаться не более 25 обращений к методам API.
     req_per_sec = 3 # magic constant
     if len(fields) > 7:
@@ -126,6 +134,11 @@ async def async_get_members(group_id, count=-1, offset=0, fields=[]):
 def get_group_stats(group_id,
                     timestamp_from,
                     timestamp_to=datetime.today().timestamp()):#.replace(hour=0, minute=0, second=0, microsecond=0).timestamp()):
+    '''Возвращает статистику сообщества или приложения. vk.api : stats.get
+    group_id -- идентификатор сообщества.
+    timestamp_from -- начало периода статистики в Unixtime.
+    timestamp_to -- окончание периода статистики в Unixtime.
+    '''
     try:
         response = vk_request('stats.get',
                               group_id=group_id,
@@ -161,6 +174,11 @@ def vk_request(method, **kwargs):
 
 
 def get_group_info(group_id, fields=[]):
+    '''Возвращает информацию о заданном сообществе или о нескольких сообществах.
+       vk.api : groups.getById
+       group_id -- идентификатор или короткое имя сообщества.
+       fields -- список дополнительных полей, которые необходимо вернуть.
+    '''
     response = vk_request('groups.getById',
                           access_token=Config.VK_ACCESS_TOKEN,
                           fields=','.join(fields),
@@ -170,7 +188,11 @@ def get_group_info(group_id, fields=[]):
     return response['response'][0]
 
 def get_group_posts(group_id, count=100, offset=0):
-    '''Возвращает список записей со стены пользователя или сообщества. vk.api : wall.get'''
+    '''Возвращает список записей со стены пользователя или сообщества. vk.api : wall.get
+       group_id -- идентификатор или короткое имя сообщества.
+       count -- количество записей, которое необходимо получить.
+       offset -- смещение, необходимое для выборки определенного подмножества записей.
+    '''
     current_count = 0
     posts = []
     while current_count < count:
@@ -194,7 +216,8 @@ def get_group_posts(group_id, count=100, offset=0):
 def get_group_id(screen_name):
     '''Определяет тип объекта (пользователь, сообщество, приложение)
         и его идентификатор по короткому имени screen_name.
-    vk.api : utils.resolveScreenName'''
+    vk.api : utils.resolveScreenName
+    screen_name -- отображаемое имя'''
     response = vk_request('utils.resolveScreenName',
                           access_token=Config.VK_ACCESS_TOKEN,
                           screen_name=screen_name,
@@ -252,6 +275,10 @@ def get_group_members(group_id, count=-1, offset=0, fields=[]):
     return members
 
 def get_users_info(user_ids, fields=[]):
+    '''Возвращает расширенную информацию о пользователях. vk.api : users.get
+    user_ids -- идентификаторы пользователей или их короткие имена (screen_name)
+    fields -- список дополнительных полей профилей, которые необходимо вернуть
+    '''
     max_count = 500 # ограничение request URI
     if len(fields) < 8:
         max_count = 400
@@ -269,4 +296,6 @@ def get_users_info(user_ids, fields=[]):
     return users_info
 
 def date_n_days_ago(n):
+    '''Возвращает дату n дней назад
+    n -- кол-во дней'''
     return datetime.today() - timedelta(days=n)
