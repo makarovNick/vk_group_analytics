@@ -1,0 +1,996 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['table', 'corechart']});
+            google.charts.setOnLoadCallback(drawTables);
+            google.charts.setOnLoadCallback(drawCharts);
+
+            function drawTables() {
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'active users rank');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club24136539', 0.6749811016156517, '😊👨', 'ВЕСТИ'],
+['club26284064', 0.44016512007579284, '☠️👨', 'ТАСС'],
+['club15548215', 0.3531371452168896, '☠️👨', 'ВЕДОМОСТИ'],
+['club40316705', 0.5004297557323869, '😊👨', 'Новости RT на русском'],
+['club15722194', 0.6253536330258541, '😊👨', 'Комсомольская правда - KP.RU'],
+['club67991642', 0.43551134059636126, '☠️👨', 'Лента.ру'],
+['club33393308', 0.5066435599831711, '😊👨', 'Стартапы и бизнес'],
+['club24565142', 0.5086006026021705, '😊👨', 'Клуб National Geographic Россия'],
+['club28429027', 0.3886181179773477, '☠️👩', 'Cosmopolitan'],
+['club28261334', 0.478279110838971, '☠️👨', 'TJ'],
+['club60556804', 0.6106713840670669, '😊👨', 'Эхо Москвы']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_main_rating'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'female rate');
+        data.addColumn('number', 'male rate');
+        data.addColumn('number', 'young rate');
+        data.addColumn('number', 'adult rate');
+        data.addColumn('number', 'elderly rate');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club24136539', 0.361384489295495, 0.6363400121271081, 0.23728486043830835, 0.6785216921980051, 0.08419344736368664, '👨', 'ВЕСТИ'],
+['club26284064', 0.38264367005819644, 0.6148929670794464, 0.2994846127938216, 0.57695952878884, 0.12355585841733832, '👨', 'ТАСС'],
+['club15548215', 0.4043426164627283, 0.5941596165716568, 0.31525725282306377, 0.5897026251770088, 0.09504012199992738, '👨', 'ВЕДОМОСТИ'],
+['club40316705', 0.28914639859070984, 0.7062307426703937, 0.2316971521694667, 0.6621222484423693, 0.10618059938816399, '👨', 'Новости RT на русском'],
+['club15722194', 0.4801701086647323, 0.518942367867099, 0.20272515218751777, 0.6622233600728225, 0.13505148773965978, '👨', 'Комсомольская правда - KP.RU'],
+['club67991642', 0.4034750043196457, 0.594170286462833, 0.3463632601069665, 0.5518618677746391, 0.10177487211839446, '👨', 'Лента.ру'],
+['club33393308', 0.3338490122189675, 0.6642368576801193, 0.35130468006682597, 0.6284002966714364, 0.020295023261737627, '👨', 'Стартапы и бизнес'],
+['club24565142', 0.44418887060082046, 0.5543511446876987, 0.2061149485447212, 0.7355155054508391, 0.05836954600443964, '👨', 'Клуб National Geographic Россия'],
+['club28429027', 0.8186161274708496, 0.18061256212787224, 0.32296655424948745, 0.6401915683180317, 0.036841877432480824, '👩', 'Cosmopolitan'],
+['club28261334', 0.40606755339391293, 0.5926237040199746, 0.4711426900693355, 0.493177831200052, 0.03567947873061251, '👨', 'TJ'],
+['club60556804', 0.3753012902311073, 0.6218225273946244, 0.22268133114581434, 0.630714386988313, 0.14660428186587268, '👨', 'Эхо Москвы']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_population_pyramid'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'RU rate');
+        data.addColumn('number', 'foreign countries rate');
+        data.addColumn('number', 'MSK rate');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club24136539', 0.8357915404160495, 0.16420845958395047, 0.1164279794013343, '🇷🇺', 'ВЕСТИ'],
+['club26284064', 0.8113635826259664, 0.18863641737403358, 0.13739432487215808, '🇷🇺', 'ТАСС'],
+['club15548215', 0.7532313250764571, 0.24676867492354293, 0.1611293560912871, '🇷🇺', 'ВЕДОМОСТИ'],
+['club40316705', 0.7838454292715731, 0.21615457072842692, 0.1219394242695099, '🇷🇺', 'Новости RT на русском'],
+['club15722194', 0.8941491601947472, 0.10585083980525278, 0.07574251587796291, '🇷🇺', 'Комсомольская правда - KP.RU'],
+['club67991642', 0.83589025682624, 0.16410974317376004, 0.14216372509256472, '🇷🇺', 'Лента.ру'],
+['club33393308', 0.7586970576502469, 0.24130294234975314, 0.19297563860957123, '🇷🇺', 'Стартапы и бизнес'],
+['club24565142', 0.7828005833316911, 0.2171994166683089, 0.1401503655676645, '🇷🇺', 'Клуб National Geographic Россия'],
+['club28429027', 0.8664190004445291, 0.13358099955547087, 0.12402362354734235, '🇷🇺', 'Cosmopolitan'],
+['club28261334', 0.7377214806481621, 0.2622785193518379, 0.17070722367652466, '🇷🇺', 'TJ'],
+['club60556804', 0.867720124736556, 0.13227987526344398, 0.2201199683390393, '🇷🇺', 'Эхо Москвы']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_geo'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'active rate');
+        data.addColumn('number', 'inactive rate');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club24136539', 0.6749811016156517, 0.3250188983843483, '😊', 'ВЕСТИ'],
+['club26284064', 0.44016512007579284, 0.5598348799242072, '☠️', 'ТАСС'],
+['club15548215', 0.3531371452168896, 0.6468628547831103, '☠️', 'ВЕДОМОСТИ'],
+['club40316705', 0.5004297557323869, 0.4995702442676131, '😊', 'Новости RT на русском'],
+['club15722194', 0.6253536330258541, 0.3746463669741459, '😊', 'Комсомольская правда - KP.RU'],
+['club67991642', 0.43551134059636126, 0.5644886594036387, '☠️', 'Лента.ру'],
+['club33393308', 0.5066435599831711, 0.4933564400168289, '😊', 'Стартапы и бизнес'],
+['club24565142', 0.5086006026021705, 0.49139939739782945, '😊', 'Клуб National Geographic Россия'],
+['club28429027', 0.3886181179773477, 0.6113818820226523, '☠️', 'Cosmopolitan'],
+['club28261334', 0.478279110838971, 0.521720889161029, '☠️', 'TJ'],
+['club60556804', 0.6106713840670669, 0.3893286159329331, '😊', 'Эхо Москвы']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_vk_acivity'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'education rate');
+        data.addColumn('string', 'top university');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club24136539', 0.1450856355555214, 'МГУ', '', 'ВЕСТИ'],
+['club26284064', 0.18275650035137034, 'МГУ', '', 'ТАСС'],
+['club15548215', 0.1446644402723584, 'МГУ', '', 'ВЕДОМОСТИ'],
+['club40316705', 0.1417614777138268, 'МГУ', '', 'Новости RT на русском'],
+['club15722194', 0.12347728760114231, 'МГУ', '', 'Комсомольская правда - KP.RU'],
+['club67991642', 0.16740395694191895, 'МГУ', '', 'Лента.ру'],
+['club33393308', 0.21044872037198048, 'МГУ', '', 'Стартапы и бизнес'],
+['club24565142', 0.1785996402398973, 'МГУ', '', 'Клуб National Geographic Россия'],
+['club28429027', 0.15822166743092, 'МГУ', '', 'Cosmopolitan'],
+['club28261334', 0.1816361071311452, 'МГУ', '', 'TJ'],
+['club60556804', 0.20978933419589102, 'МГУ', '', 'Эхо Москвы']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_education'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+            }
+
+            function drawCharts() {
+                
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 422283],
+['2. last week', 74081],
+['3. last month', 30452],
+['4. not active for a month', 186385],
+['5. deleted', 45416],
+['6. banned', 21873]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club24136539'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 248256],
+['2. last week', 43041],
+['3. last month', 20913],
+['4. not active for a month', 248661],
+['5. deleted', 82252],
+['6. banned', 66179]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club26284064'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 177011],
+['2. last week', 43560],
+['3. last month', 20580],
+['4. not active for a month', 302700],
+['5. deleted', 118857],
+['6. banned', 20174]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club15548215'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 491134],
+['2. last week', 96576],
+['3. last month', 44005],
+['4. not active for a month', 402687],
+['5. deleted', 135759],
+['6. banned', 92184]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club40316705'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 426388],
+['2. last week', 69912],
+['3. last month', 26253],
+['4. not active for a month', 208382],
+['5. deleted', 59999],
+['6. banned', 44678]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club15722194'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 210649],
+['2. last week', 41352],
+['3. last month', 21869],
+['4. not active for a month', 225189],
+['5. deleted', 64137],
+['6. banned', 65651]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club67991642'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 339895],
+['2. last week', 64678],
+['3. last month', 30152],
+['4. not active for a month', 255808],
+['5. deleted', 96114],
+['6. banned', 71402]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club33393308'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 572421],
+['2. last week', 120488],
+['3. last month', 51843],
+['4. not active for a month', 423605],
+['5. deleted', 204899],
+['6. banned', 91060]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club24565142'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 231390],
+['2. last week', 48903],
+['3. last month', 22301],
+['4. not active for a month', 288097],
+['5. deleted', 102651],
+['6. banned', 85299]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club28429027'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 277338],
+['2. last week', 40210],
+['3. last month', 19887],
+['4. not active for a month', 223141],
+['5. deleted', 89654],
+['6. banned', 55289]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club28261334'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 75665],
+['2. last week', 12806],
+['3. last month', 5424],
+['4. not active for a month', 31691],
+['5. deleted', 13700],
+['6. banned', 14471]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club60556804'));
+        chart.draw(data, options);
+        
+            }
+        </script>
+
+        <title>Dashboard Media</title>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+            <h5>&#9889; Dashboard Media</h5>
+        </div>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            &#x25BC; Groups &#x2713;
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show multi-collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4> 🏆 Groups Rating</h4>
+    <div id="table_main_rating"></div>
+    </div>
+    <p></p>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingPyramid">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapsePyramid" aria-expanded="false" aria-controls="collapsePyramid">
+                            &#x25BC; Users [Sample]. Population Pyramid ⚤
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapsePyramid" class="collapse multi-collapse" aria-labelledby="headingPyramid" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4> 👪 Users. Gender/Age Rating</h4>
+    <div id="table_population_pyramid"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club24136539 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club24136539">club24136539</a></h5>
+        <h6 style="max-width: 400px;">ВЕСТИ</h6>
+        <iframe src="population_pyramid/population_pyramid_24136539.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club26284064 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club26284064">club26284064</a></h5>
+        <h6 style="max-width: 400px;">ТАСС</h6>
+        <iframe src="population_pyramid/population_pyramid_26284064.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15548215 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club15548215">club15548215</a></h5>
+        <h6 style="max-width: 400px;">ВЕДОМОСТИ</h6>
+        <iframe src="population_pyramid/population_pyramid_15548215.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club40316705 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club40316705">club40316705</a></h5>
+        <h6 style="max-width: 400px;">Новости RT на русском</h6>
+        <iframe src="population_pyramid/population_pyramid_40316705.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15722194 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club15722194">club15722194</a></h5>
+        <h6 style="max-width: 400px;">Комсомольская правда - KP.RU</h6>
+        <iframe src="population_pyramid/population_pyramid_15722194.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club67991642 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club67991642">club67991642</a></h5>
+        <h6 style="max-width: 400px;">Лента.ру</h6>
+        <iframe src="population_pyramid/population_pyramid_67991642.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club33393308 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club33393308">club33393308</a></h5>
+        <h6 style="max-width: 400px;">Стартапы и бизнес</h6>
+        <iframe src="population_pyramid/population_pyramid_33393308.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club24565142 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club24565142">club24565142</a></h5>
+        <h6 style="max-width: 400px;">Клуб National Geographic Россия</h6>
+        <iframe src="population_pyramid/population_pyramid_24565142.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28429027 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👩 <a href="https://vk.com/club28429027">club28429027</a></h5>
+        <h6 style="max-width: 400px;">Cosmopolitan</h6>
+        <iframe src="population_pyramid/population_pyramid_28429027.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28261334 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club28261334">club28261334</a></h5>
+        <h6 style="max-width: 400px;">TJ</h6>
+        <iframe src="population_pyramid/population_pyramid_28261334.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club60556804 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club60556804">club60556804</a></h5>
+        <h6 style="max-width: 400px;">Эхо Москвы</h6>
+        <iframe src="population_pyramid/population_pyramid_60556804.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingGeo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseGeo" aria-expanded="false" aria-controls="collapseGeo">
+                            &#x25BC; Users [Sample]. Geo Location ⚐
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseGeo" class="collapse multi-collapse" aria-labelledby="headingGeo" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4>🌎 Users. Geo Rating</h4>
+    <div id="table_geo"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club24136539 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club24136539">club24136539</a></h5>
+        <h6 style="max-width: 400px;">ВЕСТИ</h6>
+        <iframe src="geo_sunburst/geo_sunburst_24136539.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club26284064 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club26284064">club26284064</a></h5>
+        <h6 style="max-width: 400px;">ТАСС</h6>
+        <iframe src="geo_sunburst/geo_sunburst_26284064.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15548215 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club15548215">club15548215</a></h5>
+        <h6 style="max-width: 400px;">ВЕДОМОСТИ</h6>
+        <iframe src="geo_sunburst/geo_sunburst_15548215.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club40316705 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club40316705">club40316705</a></h5>
+        <h6 style="max-width: 400px;">Новости RT на русском</h6>
+        <iframe src="geo_sunburst/geo_sunburst_40316705.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15722194 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club15722194">club15722194</a></h5>
+        <h6 style="max-width: 400px;">Комсомольская правда - KP.RU</h6>
+        <iframe src="geo_sunburst/geo_sunburst_15722194.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club67991642 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club67991642">club67991642</a></h5>
+        <h6 style="max-width: 400px;">Лента.ру</h6>
+        <iframe src="geo_sunburst/geo_sunburst_67991642.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club33393308 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club33393308">club33393308</a></h5>
+        <h6 style="max-width: 400px;">Стартапы и бизнес</h6>
+        <iframe src="geo_sunburst/geo_sunburst_33393308.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club24565142 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club24565142">club24565142</a></h5>
+        <h6 style="max-width: 400px;">Клуб National Geographic Россия</h6>
+        <iframe src="geo_sunburst/geo_sunburst_24565142.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28429027 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club28429027">club28429027</a></h5>
+        <h6 style="max-width: 400px;">Cosmopolitan</h6>
+        <iframe src="geo_sunburst/geo_sunburst_28429027.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28261334 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club28261334">club28261334</a></h5>
+        <h6 style="max-width: 400px;">TJ</h6>
+        <iframe src="geo_sunburst/geo_sunburst_28261334.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club60556804 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club60556804">club60556804</a></h5>
+        <h6 style="max-width: 400px;">Эхо Москвы</h6>
+        <iframe src="geo_sunburst/geo_sunburst_60556804.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingVKActivity">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseVKActivity" aria-expanded="false" aria-controls="collapseVKActivity">
+                            &#x25BC; Users [Sample]. VK Activity ☼
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseVKActivity" class="collapse multi-collapse" aria-labelledby="headingVKActivity" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4>👥 Users. VK Activity Rating</h4>
+    <div id="table_vk_acivity"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club24136539 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club24136539">club24136539</a></h5>
+        <h6 style="max-width: 400px;">ВЕСТИ</h6>
+        <div id="vk_activity_pie_club24136539" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club26284064 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club26284064">club26284064</a></h5>
+        <h6 style="max-width: 400px;">ТАСС</h6>
+        <div id="vk_activity_pie_club26284064" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club15548215 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club15548215">club15548215</a></h5>
+        <h6 style="max-width: 400px;">ВЕДОМОСТИ</h6>
+        <div id="vk_activity_pie_club15548215" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club40316705 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club40316705">club40316705</a></h5>
+        <h6 style="max-width: 400px;">Новости RT на русском</h6>
+        <div id="vk_activity_pie_club40316705" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club15722194 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club15722194">club15722194</a></h5>
+        <h6 style="max-width: 400px;">Комсомольская правда - KP.RU</h6>
+        <div id="vk_activity_pie_club15722194" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club67991642 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club67991642">club67991642</a></h5>
+        <h6 style="max-width: 400px;">Лента.ру</h6>
+        <div id="vk_activity_pie_club67991642" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club33393308 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club33393308">club33393308</a></h5>
+        <h6 style="max-width: 400px;">Стартапы и бизнес</h6>
+        <div id="vk_activity_pie_club33393308" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club24565142 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club24565142">club24565142</a></h5>
+        <h6 style="max-width: 400px;">Клуб National Geographic Россия</h6>
+        <div id="vk_activity_pie_club24565142" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club28429027 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club28429027">club28429027</a></h5>
+        <h6 style="max-width: 400px;">Cosmopolitan</h6>
+        <div id="vk_activity_pie_club28429027" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club28261334 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club28261334">club28261334</a></h5>
+        <h6 style="max-width: 400px;">TJ</h6>
+        <div id="vk_activity_pie_club28261334" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club60556804 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club60556804">club60556804</a></h5>
+        <h6 style="max-width: 400px;">Эхо Москвы</h6>
+        <div id="vk_activity_pie_club60556804" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingEdu">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseEdu" aria-expanded="false" aria-controls="collapseEdu">
+                            &#x25BC; Users [Sample]. Education ⚘
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseEdu" class="collapse multi-collapse" aria-labelledby="headingVKActivity" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4> 🎓 Users. Education rating</h4>
+    <div id="table_education"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club24136539 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club24136539">club24136539</a></h5>
+        <h6 style="max-width: 400px;">ВЕСТИ</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_24136539.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club26284064 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club26284064">club26284064</a></h5>
+        <h6 style="max-width: 400px;">ТАСС</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_26284064.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15548215 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club15548215">club15548215</a></h5>
+        <h6 style="max-width: 400px;">ВЕДОМОСТИ</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_15548215.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club40316705 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club40316705">club40316705</a></h5>
+        <h6 style="max-width: 400px;">Новости RT на русском</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_40316705.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15722194 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club15722194">club15722194</a></h5>
+        <h6 style="max-width: 400px;">Комсомольская правда - KP.RU</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_15722194.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club67991642 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club67991642">club67991642</a></h5>
+        <h6 style="max-width: 400px;">Лента.ру</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_67991642.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club33393308 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club33393308">club33393308</a></h5>
+        <h6 style="max-width: 400px;">Стартапы и бизнес</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_33393308.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club24565142 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club24565142">club24565142</a></h5>
+        <h6 style="max-width: 400px;">Клуб National Geographic Россия</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_24565142.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28429027 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club28429027">club28429027</a></h5>
+        <h6 style="max-width: 400px;">Cosmopolitan</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_28429027.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28261334 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club28261334">club28261334</a></h5>
+        <h6 style="max-width: 400px;">TJ</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_28261334.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club60556804 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club60556804">club60556804</a></h5>
+        <h6 style="max-width: 400px;">Эхо Москвы</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_60556804.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,1067 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['table', 'corechart']});
+            google.charts.setOnLoadCallback(drawTables);
+            google.charts.setOnLoadCallback(drawCharts);
+
+            function drawTables() {
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'active users rank');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club97597836', 0.6951412622023833, '😊👦', 'Dota 2 RuHub'],
+['club54890300', 0.6462176772711868, '😊👨', 'World of Tanks Console'],
+['club29468395', 0.5741151459006499, '😊👨', 'World of Warships'],
+['club79997904', 0.7314459238495679, '😊👦', 'Overwatch'],
+['club13137988', 0.56453315526524, '😊👦', 'War Thunder'],
+['club82916452', 0.7732594475230199, '😊👦', 'Ведьмак'],
+['club44409353', 0.7017894364258466, '😊👦', 'World of Warcraft'],
+['club44039859', 0.5771607474485184, '😊👦', 'StarLadder CS:GO'],
+['club91544268', 0.6270691266089333, '😊👦', 'Mortal Kombat'],
+['club9213619', 0.54837566488497, '😊👧', 'The Sims'],
+['club32017129', 0.2906976212085389, '☠️👦', 'Копатель'],
+['club83411874', 0.3736140208273862, '☠️👧', 'Говорящий Том']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_main_rating'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'female rate');
+        data.addColumn('number', 'male rate');
+        data.addColumn('number', 'young rate');
+        data.addColumn('number', 'adult rate');
+        data.addColumn('number', 'elderly rate');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club97597836', 0.08440231392415175, 0.9122226586163054, 0.6377936506879863, 0.3500176406760706, 0.012188708635943044, '👦', 'Dota 2 RuHub'],
+['club54890300', 0.06052865136021609, 0.9381362145475594, 0.40258537526529037, 0.587875747636504, 0.009538877098205672, '👨', 'World of Tanks Console'],
+['club29468395', 0.04261461400221772, 0.9555946417874304, 0.3223212123529487, 0.6587070954256363, 0.018971692221415006, '👨', 'World of Warships'],
+['club79997904', 0.13987105317086243, 0.8589230259942936, 0.7066380818765075, 0.2820199568075413, 0.01134196131595126, '👦', 'Overwatch'],
+['club13137988', 0.04277616813833701, 0.9520154985283297, 0.4969474337748344, 0.48531204010301693, 0.017740526122148638, '👦', 'War Thunder'],
+['club82916452', 0.1961004874390701, 0.8028371453568304, 0.654938965962588, 0.332437611965171, 0.01262342207224097, '👦', 'Ведьмак'],
+['club44409353', 0.13993840251793216, 0.8588458577044131, 0.5218157748990261, 0.46832322468221915, 0.009861000418754812, '👦', 'World of Warcraft'],
+['club44039859', 0.06621228277471973, 0.9277284647972565, 0.769950142655408, 0.21794576212570968, 0.012104095218882388, '👦', 'StarLadder CS:GO'],
+['club91544268', 0.08897403841470344, 0.9098731957591206, 0.7310483674562842, 0.2582520173401958, 0.010699615203519995, '👦', 'Mortal Kombat'],
+['club9213619', 0.8446923908043518, 0.1548797056023278, 0.8133270574139646, 0.17752650327881128, 0.009146439307224082, '👧', 'The Sims'],
+['club32017129', 0.18756171134039296, 0.8116683123024104, 0.8057304358066182, 0.17643781761524735, 0.017831746578134484, '👦', 'Копатель'],
+['club83411874', 0.6291596214622746, 0.3696054390453342, 0.5462593284407893, 0.43836368304104956, 0.015376988518161135, '👧', 'Говорящий Том']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_population_pyramid'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'RU rate');
+        data.addColumn('number', 'foreign countries rate');
+        data.addColumn('number', 'MSK rate');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club97597836', 0.6995072816857876, 0.3004927183142124, 0.10540171996872784, '🇷🇺', 'Dota 2 RuHub'],
+['club54890300', 0.6915545902597945, 0.3084454097402055, 0.07441734190961491, '🇷🇺', 'World of Tanks Console'],
+['club29468395', 0.7057670072281987, 0.29423299277180126, 0.08895958564637947, '🇷🇺', 'World of Warships'],
+['club79997904', 0.7903220940205937, 0.20967790597940628, 0.14409537396611397, '🇷🇺', 'Overwatch'],
+['club13137988', 0.6794090640981204, 0.3205909359018796, 0.09286656815708022, '🇷🇺', 'War Thunder'],
+['club82916452', 0.7746552886208118, 0.2253447113791882, 0.11619086786158996, '🇷🇺', 'Ведьмак'],
+['club44409353', 0.7795637858898969, 0.22043621411010306, 0.13730536425459722, '🇷🇺', 'World of Warcraft'],
+['club44039859', 0.6622611299411533, 0.33773887005884673, 0.10753363415192031, '🌐', 'StarLadder CS:GO'],
+['club91544268', 0.7345551916532426, 0.26544480834675743, 0.09952313387456393, '🇷🇺', 'Mortal Kombat'],
+['club9213619', 0.7419503265386899, 0.25804967346131014, 0.11294280625371067, '🇷🇺', 'The Sims'],
+['club32017129', 0.6280465916273374, 0.37195340837266255, 0.08809376465898655, '🌐', 'Копатель'],
+['club83411874', 0.5953352531294636, 0.40466474687053644, 0.05829144958235491, '🌐', 'Говорящий Том']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_geo'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'active rate');
+        data.addColumn('number', 'inactive rate');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club97597836', 0.6951412622023833, 0.30485873779761674, '😊', 'Dota 2 RuHub'],
+['club54890300', 0.6462176772711868, 0.35378232272881316, '😊', 'World of Tanks Console'],
+['club29468395', 0.5741151459006499, 0.42588485409935006, '😊', 'World of Warships'],
+['club79997904', 0.7314459238495679, 0.26855407615043214, '😊', 'Overwatch'],
+['club13137988', 0.56453315526524, 0.43546684473476005, '😊', 'War Thunder'],
+['club82916452', 0.7732594475230199, 0.2267405524769801, '😊', 'Ведьмак'],
+['club44409353', 0.7017894364258466, 0.29821056357415343, '😊', 'World of Warcraft'],
+['club44039859', 0.5771607474485184, 0.4228392525514816, '😊', 'StarLadder CS:GO'],
+['club91544268', 0.6270691266089333, 0.3729308733910667, '😊', 'Mortal Kombat'],
+['club9213619', 0.54837566488497, 0.45162433511503, '😊', 'The Sims'],
+['club32017129', 0.2906976212085389, 0.7093023787914611, '☠️', 'Копатель'],
+['club83411874', 0.3736140208273862, 0.6263859791726138, '☠️', 'Говорящий Том']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_vk_acivity'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'education rate');
+        data.addColumn('string', 'top university');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club97597836', 0.142850125635261, 'МГУ', '', 'Dota 2 RuHub'],
+['club54890300', 0.11007502425863253, 'МГУ', '', 'World of Tanks Console'],
+['club29468395', 0.1283982541570876, 'МГУ', '', 'World of Warships'],
+['club79997904', 0.11700157987895139, 'МГУ', '', 'Overwatch'],
+['club13137988', 0.11627321639873694, 'МГУ', '', 'War Thunder'],
+['club82916452', 0.12615287428932406, 'МГУ', '', 'Ведьмак'],
+['club44409353', 0.1363484300575088, 'МГУ', '', 'World of Warcraft'],
+['club44039859', 0.09780715594149683, 'МГУ', '', 'StarLadder CS:GO'],
+['club91544268', 0.06898867991014404, 'МГУ', '', 'Mortal Kombat'],
+['club9213619', 0.08223911541119558, 'МГУ', '', 'The Sims'],
+['club32017129', 0.08763479761832114, 'МГУ', '', 'Копатель'],
+['club83411874', 0.058946519511940146, 'МГУ', '', 'Говорящий Том']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_education'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+            }
+
+            function drawCharts() {
+                
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 233616],
+['2. last week', 22092],
+['3. last month', 13393],
+['4. not active for a month', 65814],
+['5. deleted', 28129],
+['6. banned', 24073]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club97597836'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 159293],
+['2. last week', 24849],
+['3. last month', 12261],
+['4. not active for a month', 74681],
+['5. deleted', 11555],
+['6. banned', 21288]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club54890300'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 181357],
+['2. last week', 33467],
+['3. last month', 16336],
+['4. not active for a month', 94839],
+['5. deleted', 41396],
+['6. banned', 35242]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club29468395'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 211550],
+['2. last week', 15231],
+['3. last month', 8068],
+['4. not active for a month', 47864],
+['5. deleted', 23454],
+['6. banned', 14908]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club79997904'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 209018],
+['2. last week', 30824],
+['3. last month', 16320],
+['4. not active for a month', 120812],
+['5. deleted', 48874],
+['6. banned', 27911]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club13137988'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 83779],
+['2. last week', 6049],
+['3. last month', 2967],
+['4. not active for a month', 14779],
+['5. deleted', 8874],
+['6. banned', 3557]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club82916452'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 234872],
+['2. last week', 22217],
+['3. last month', 10577],
+['4. not active for a month', 60475],
+['5. deleted', 37484],
+['6. banned', 15780]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club44409353'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 180256],
+['2. last week', 18570],
+['3. last month', 11885],
+['4. not active for a month', 92334],
+['5. deleted', 32158],
+['6. banned', 29879]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club44039859'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 78447],
+['2. last week', 7670],
+['3. last month', 3816],
+['4. not active for a month', 32518],
+['5. deleted', 11645],
+['6. banned', 9322]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club91544268'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 144572],
+['2. last week', 15044],
+['3. last month', 9049],
+['4. not active for a month', 77580],
+['5. deleted', 46728],
+['6. banned', 14599]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club9213619'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 143996],
+['2. last week', 27046],
+['3. last month', 19535],
+['4. not active for a month', 326883],
+['5. deleted', 106293],
+['6. banned', 31832]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club32017129'));
+        chart.draw(data, options);
+        
+
+        var data = google.visualization.arrayToDataTable([
+            ['activity', 'count'],
+            ['1. last day', 169542],
+['2. last week', 40563],
+['3. last month', 21554],
+['4. not active for a month', 265195],
+['5. deleted', 69916],
+['6. banned', 53279]
+        ]);
+
+        var options = {
+            title: 'User Last Activity',
+            is3D: true,
+            slices: {
+                0: {color: '#28a745'},
+                1: {color: '#007bff'},
+                2: {color: '#ffc107'},
+                3: {color: '#fd7e14', offset: 0.2},
+                4: {color: '#6c757d', offset: 0.2},
+                5: {color: '#dc3545', offset: 0.2}
+            },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('vk_activity_pie_club83411874'));
+        chart.draw(data, options);
+        
+            }
+        </script>
+
+        <title>Dashboard Games</title>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+            <h5>&#9889; Dashboard Games</h5>
+        </div>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            &#x25BC; Groups &#x2713;
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show multi-collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4> 🏆 Groups Rating</h4>
+    <div id="table_main_rating"></div>
+    </div>
+    <p></p>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingPyramid">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapsePyramid" aria-expanded="false" aria-controls="collapsePyramid">
+                            &#x25BC; Users [Sample]. Population Pyramid ⚤
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapsePyramid" class="collapse multi-collapse" aria-labelledby="headingPyramid" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4> 👪 Users. Gender/Age Rating</h4>
+    <div id="table_population_pyramid"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club97597836 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👦 <a href="https://vk.com/club97597836">club97597836</a></h5>
+        <h6 style="max-width: 400px;">Dota 2 RuHub</h6>
+        <iframe src="population_pyramid/population_pyramid_97597836.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club54890300 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club54890300">club54890300</a></h5>
+        <h6 style="max-width: 400px;">World of Tanks Console</h6>
+        <iframe src="population_pyramid/population_pyramid_54890300.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club29468395 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club29468395">club29468395</a></h5>
+        <h6 style="max-width: 400px;">World of Warships</h6>
+        <iframe src="population_pyramid/population_pyramid_29468395.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club79997904 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👦 <a href="https://vk.com/club79997904">club79997904</a></h5>
+        <h6 style="max-width: 400px;">Overwatch</h6>
+        <iframe src="population_pyramid/population_pyramid_79997904.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club13137988 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👦 <a href="https://vk.com/club13137988">club13137988</a></h5>
+        <h6 style="max-width: 400px;">War Thunder</h6>
+        <iframe src="population_pyramid/population_pyramid_13137988.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club82916452 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👦 <a href="https://vk.com/club82916452">club82916452</a></h5>
+        <h6 style="max-width: 400px;">Ведьмак</h6>
+        <iframe src="population_pyramid/population_pyramid_82916452.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club44409353 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👦 <a href="https://vk.com/club44409353">club44409353</a></h5>
+        <h6 style="max-width: 400px;">World of Warcraft</h6>
+        <iframe src="population_pyramid/population_pyramid_44409353.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club44039859 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👦 <a href="https://vk.com/club44039859">club44039859</a></h5>
+        <h6 style="max-width: 400px;">StarLadder CS:GO</h6>
+        <iframe src="population_pyramid/population_pyramid_44039859.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club91544268 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👦 <a href="https://vk.com/club91544268">club91544268</a></h5>
+        <h6 style="max-width: 400px;">Mortal Kombat</h6>
+        <iframe src="population_pyramid/population_pyramid_91544268.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club9213619 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👧 <a href="https://vk.com/club9213619">club9213619</a></h5>
+        <h6 style="max-width: 400px;">The Sims</h6>
+        <iframe src="population_pyramid/population_pyramid_9213619.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club32017129 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👦 <a href="https://vk.com/club32017129">club32017129</a></h5>
+        <h6 style="max-width: 400px;">Копатель</h6>
+        <iframe src="population_pyramid/population_pyramid_32017129.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club83411874 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👧 <a href="https://vk.com/club83411874">club83411874</a></h5>
+        <h6 style="max-width: 400px;">Говорящий Том</h6>
+        <iframe src="population_pyramid/population_pyramid_83411874.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingGeo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseGeo" aria-expanded="false" aria-controls="collapseGeo">
+                            &#x25BC; Users [Sample]. Geo Location ⚐
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseGeo" class="collapse multi-collapse" aria-labelledby="headingGeo" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4>🌎 Users. Geo Rating</h4>
+    <div id="table_geo"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club97597836 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club97597836">club97597836</a></h5>
+        <h6 style="max-width: 400px;">Dota 2 RuHub</h6>
+        <iframe src="geo_sunburst/geo_sunburst_97597836.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club54890300 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club54890300">club54890300</a></h5>
+        <h6 style="max-width: 400px;">World of Tanks Console</h6>
+        <iframe src="geo_sunburst/geo_sunburst_54890300.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club29468395 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club29468395">club29468395</a></h5>
+        <h6 style="max-width: 400px;">World of Warships</h6>
+        <iframe src="geo_sunburst/geo_sunburst_29468395.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club79997904 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club79997904">club79997904</a></h5>
+        <h6 style="max-width: 400px;">Overwatch</h6>
+        <iframe src="geo_sunburst/geo_sunburst_79997904.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club13137988 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club13137988">club13137988</a></h5>
+        <h6 style="max-width: 400px;">War Thunder</h6>
+        <iframe src="geo_sunburst/geo_sunburst_13137988.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club82916452 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club82916452">club82916452</a></h5>
+        <h6 style="max-width: 400px;">Ведьмак</h6>
+        <iframe src="geo_sunburst/geo_sunburst_82916452.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club44409353 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club44409353">club44409353</a></h5>
+        <h6 style="max-width: 400px;">World of Warcraft</h6>
+        <iframe src="geo_sunburst/geo_sunburst_44409353.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club44039859 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club44039859">club44039859</a></h5>
+        <h6 style="max-width: 400px;">StarLadder CS:GO</h6>
+        <iframe src="geo_sunburst/geo_sunburst_44039859.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club91544268 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club91544268">club91544268</a></h5>
+        <h6 style="max-width: 400px;">Mortal Kombat</h6>
+        <iframe src="geo_sunburst/geo_sunburst_91544268.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club9213619 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club9213619">club9213619</a></h5>
+        <h6 style="max-width: 400px;">The Sims</h6>
+        <iframe src="geo_sunburst/geo_sunburst_9213619.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club32017129 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club32017129">club32017129</a></h5>
+        <h6 style="max-width: 400px;">Копатель</h6>
+        <iframe src="geo_sunburst/geo_sunburst_32017129.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club83411874 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club83411874">club83411874</a></h5>
+        <h6 style="max-width: 400px;">Говорящий Том</h6>
+        <iframe src="geo_sunburst/geo_sunburst_83411874.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingVKActivity">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseVKActivity" aria-expanded="false" aria-controls="collapseVKActivity">
+                            &#x25BC; Users [Sample]. VK Activity ☼
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseVKActivity" class="collapse multi-collapse" aria-labelledby="headingVKActivity" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4>👥 Users. VK Activity Rating</h4>
+    <div id="table_vk_acivity"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club97597836 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club97597836">club97597836</a></h5>
+        <h6 style="max-width: 400px;">Dota 2 RuHub</h6>
+        <div id="vk_activity_pie_club97597836" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club54890300 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club54890300">club54890300</a></h5>
+        <h6 style="max-width: 400px;">World of Tanks Console</h6>
+        <div id="vk_activity_pie_club54890300" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club29468395 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club29468395">club29468395</a></h5>
+        <h6 style="max-width: 400px;">World of Warships</h6>
+        <div id="vk_activity_pie_club29468395" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club79997904 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club79997904">club79997904</a></h5>
+        <h6 style="max-width: 400px;">Overwatch</h6>
+        <div id="vk_activity_pie_club79997904" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club13137988 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club13137988">club13137988</a></h5>
+        <h6 style="max-width: 400px;">War Thunder</h6>
+        <div id="vk_activity_pie_club13137988" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club82916452 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club82916452">club82916452</a></h5>
+        <h6 style="max-width: 400px;">Ведьмак</h6>
+        <div id="vk_activity_pie_club82916452" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club44409353 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club44409353">club44409353</a></h5>
+        <h6 style="max-width: 400px;">World of Warcraft</h6>
+        <div id="vk_activity_pie_club44409353" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club44039859 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club44039859">club44039859</a></h5>
+        <h6 style="max-width: 400px;">StarLadder CS:GO</h6>
+        <div id="vk_activity_pie_club44039859" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club91544268 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club91544268">club91544268</a></h5>
+        <h6 style="max-width: 400px;">Mortal Kombat</h6>
+        <div id="vk_activity_pie_club91544268" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club9213619 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club9213619">club9213619</a></h5>
+        <h6 style="max-width: 400px;">The Sims</h6>
+        <div id="vk_activity_pie_club9213619" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club32017129 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club32017129">club32017129</a></h5>
+        <h6 style="max-width: 400px;">Копатель</h6>
+        <div id="vk_activity_pie_club32017129" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+
+        <div class="club83411874 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club83411874">club83411874</a></h5>
+        <h6 style="max-width: 400px;">Говорящий Том</h6>
+        <div id="vk_activity_pie_club83411874" style="width: 400px; height: 400px;"></div>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingEdu">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseEdu" aria-expanded="false" aria-controls="collapseEdu">
+                            &#x25BC; Users [Sample]. Education ⚘
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseEdu" class="collapse multi-collapse" aria-labelledby="headingVKActivity" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4> 🎓 Users. Education rating</h4>
+    <div id="table_education"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club97597836 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club97597836">club97597836</a></h5>
+        <h6 style="max-width: 400px;">Dota 2 RuHub</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_97597836.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club54890300 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club54890300">club54890300</a></h5>
+        <h6 style="max-width: 400px;">World of Tanks Console</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_54890300.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club29468395 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club29468395">club29468395</a></h5>
+        <h6 style="max-width: 400px;">World of Warships</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_29468395.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club79997904 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club79997904">club79997904</a></h5>
+        <h6 style="max-width: 400px;">Overwatch</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_79997904.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club13137988 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club13137988">club13137988</a></h5>
+        <h6 style="max-width: 400px;">War Thunder</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_13137988.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club82916452 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club82916452">club82916452</a></h5>
+        <h6 style="max-width: 400px;">Ведьмак</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_82916452.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club44409353 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club44409353">club44409353</a></h5>
+        <h6 style="max-width: 400px;">World of Warcraft</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_44409353.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club44039859 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club44039859">club44039859</a></h5>
+        <h6 style="max-width: 400px;">StarLadder CS:GO</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_44039859.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club91544268 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club91544268">club91544268</a></h5>
+        <h6 style="max-width: 400px;">Mortal Kombat</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_91544268.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club9213619 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club9213619">club9213619</a></h5>
+        <h6 style="max-width: 400px;">The Sims</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_9213619.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club32017129 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club32017129">club32017129</a></h5>
+        <h6 style="max-width: 400px;">Копатель</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_32017129.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club83411874 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club83411874">club83411874</a></h5>
+        <h6 style="max-width: 400px;">Говорящий Том</h6>
+        <iframe src="edu_wordcloud/edu_wordcloud_83411874.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {{'packages':['table', 'corechart']}});
+            google.charts.setOnLoadCallback(drawTables);
+            google.charts.setOnLoadCallback(drawCharts);
+
+            function drawTables() {{
+                {GOOGLE_TABLES_MAIN}
+                {GOOGLE_TABLES_POPULATION_PYRAMID}
+                {GOOGLE_TABLES_GEO}
+                {GOOGLE_TABLES_VK_ACTIVITY}
+                {GOOGLE_TABLES_EDUCATION}
+            }}
+
+            function drawCharts() {{
+                {GOOGLE_CHARTS_VK_ACTIVITY}
+            }}
+        </script>
+
+        <title>{TITLE}</title>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+            <h5>&#9889; {TITLE}</h5>
+        </div>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            &#x25BC; Groups &#x2713;
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show multi-collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        {SECTION_MAIN}
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingPyramid">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapsePyramid" aria-expanded="false" aria-controls="collapsePyramid">
+                            &#x25BC; Users [Sample]. Population Pyramid ⚤
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapsePyramid" class="collapse multi-collapse" aria-labelledby="headingPyramid" data-parent="#accordion">
+                    <div class="card-body">
+                        {SECTION_POPULATION_PYRAMID}
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingGeo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseGeo" aria-expanded="false" aria-controls="collapseGeo">
+                            &#x25BC; Users [Sample]. Geo Location ⚐
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseGeo" class="collapse multi-collapse" aria-labelledby="headingGeo" data-parent="#accordion">
+                    <div class="card-body">
+                        {SECTION_GEO}
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingVKActivity">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseVKActivity" aria-expanded="false" aria-controls="collapseVKActivity">
+                            &#x25BC; Users [Sample]. VK Activity ☼
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseVKActivity" class="collapse multi-collapse" aria-labelledby="headingVKActivity" data-parent="#accordion">
+                    <div class="card-body">
+                        {SECTION_VK_ACTIVITY}
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingEdu">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseEdu" aria-expanded="false" aria-controls="collapseEdu">
+                            &#x25BC; Users [Sample]. Education ⚘
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseEdu" class="collapse multi-collapse" aria-labelledby="headingVKActivity" data-parent="#accordion">
+                    <div class="card-body">
+                        {SECTION_EDUCATION}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
