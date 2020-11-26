@@ -20,16 +20,18 @@ pip install -r requirements.txt
 ## Usage
 
 ```console
-usage: vkcompare.py [-h] [--groups GROUPS [GROUPS ...]] [-w] [-t TOKEN] [-d N_DAYS]
-               [-mc] [-ma] [-iu] [-cu] [-ppd] [-vpp] [-lpp] [-l] [-s] [-c]
-               [-u] [-tv] [-mv] [-tvis] [-mobr] [-tr] [-r] [-fvis] [-mvis]
-               [-1v] [-2v] [-3v] [-4v] [-5v] [-6v] [-7v] [-RUv] [-NRv] [-fr]
-               [-mr] [-1r] [-2r] [-3r] [-4r] [-5r] [-6r] [-7r] [-RUr] [-NRr]
-               [--all]
+usage: main.py [-h] [-w] [-t TOKEN] [-d N_DAYS] [-mc] [-ma] [-iu] [-cu] [-ppd]
+               [-vpp] [-lpp] [-l] [-s] [-c] [-u] [-tv] [-mv] [-tvis] [-mobr]
+               [-tr] [-r] [-fvis] [-mvis] [-1v] [-2v] [-3v] [-4v] [-5v] [-6v]
+               [-7v] [-RUv] [-NRv] [-fr] [-mr] [-1r] [-2r] [-3r] [-4r] [-5r]
+               [-6r] [-7r] [-RUr] [-NRr] [--all]
+               groups [groups ...]
+
+positional arguments:
+  groups
 
 optional arguments:
   -h, --help            show this help message and exit
-  --groups GROUPS [GROUPS ...]
   -w, --web             Generate interactive web ui
   -t TOKEN, --token TOKEN
                         Access token
@@ -90,6 +92,7 @@ optional arguments:
   -RUr, --RU_reach      Show RU_reach count daily in table
   -NRr, --NOTRU_reach   Show NOTRU_reach count daily in table
   --all                 Show all statistics table
+
 ```
 
 |Название Аргумента|Описание|
