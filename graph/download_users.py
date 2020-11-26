@@ -1,4 +1,4 @@
-from utils import *
+from tools.utils import *
 
 import asyncio
 
@@ -21,7 +21,7 @@ async def main():
         try:
             await write_users(g)
         except VKGroupError:
-            time.sleep(1)
+            await asyncio.sleep(1)
 
         count+=1
 
