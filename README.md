@@ -13,7 +13,7 @@
 ## Download
 
 ```console
-git clone github.com/makarovNick/vk_group_analytics
+git clone https://github.com/makarovNick/vk_group_analytics
 pip install -r requirements.txt
 ```
 
