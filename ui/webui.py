@@ -1,5 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 from tools.utils import get_group_stats, get_group_id, date_n_days_ago
 
 from parser.parser import parse_stats

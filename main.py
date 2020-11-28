@@ -82,7 +82,6 @@ async def main():
                                             inactive_users=args.inactive_users,
                                             common_users=args.common_users)
 
-    # members_stats = None
     post_stats = get_posts_stats(ids,
                                  posts_per_day=args.posts_per_day,
                                  views_per_post=args.views_per_post,
