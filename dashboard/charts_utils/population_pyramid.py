@@ -15,8 +15,8 @@ def build_chart_population_pyramid(df, output_file):
     max_female = stat[stat.sex == 0]['count'].max()
     max_male = stat[stat.sex == 1]['count'].max()
 
-    left_width = int(320 * max_female / (max_female + max_male))
-    right_width = 320 - left_width
+    left_width = int(275 * max_female / (max_female + max_male))
+    right_width = 275 - left_width
 
     base = (
         alt.Chart(df)
@@ -24,7 +24,7 @@ def build_chart_population_pyramid(df, output_file):
             gender=alt.expr.if_(alt.datum.sex == 1, 'Male', 'Female')
         )
         .properties(
-            width=350
+            width=280
         )
     )
 

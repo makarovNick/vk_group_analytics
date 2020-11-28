@@ -16,25 +16,121 @@
                 
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'club');
+        data.addColumn('number', 'members');
+        data.addColumn('number', 'likes per view');
+        data.addColumn('number', 'posts per day');
         data.addColumn('number', 'active users rank');
         data.addColumn('string', 'status');
         data.addColumn('string', 'name');
 
         data.addRows([
-            ['club24136539', 0.6749811016156517, '😊👨', 'ВЕСТИ'],
-['club26284064', 0.44016512007579284, '☠️👨', 'ТАСС'],
-['club15548215', 0.3531371452168896, '☠️👨', 'ВЕДОМОСТИ'],
-['club40316705', 0.5004297557323869, '😊👨', 'Новости RT на русском'],
-['club15722194', 0.6253536330258541, '😊👨', 'Комсомольская правда - KP.RU'],
-['club67991642', 0.43551134059636126, '☠️👨', 'Лента.ру'],
-['club33393308', 0.5066435599831711, '😊👨', 'Стартапы и бизнес'],
-['club24565142', 0.5086006026021705, '😊👨', 'Клуб National Geographic Россия'],
-['club28429027', 0.3886181179773477, '☠️👩', 'Cosmopolitan'],
-['club28261334', 0.478279110838971, '☠️👨', 'TJ'],
-['club60556804', 0.6106713840670669, '😊👨', 'Эхо Москвы']
+            ['club24136539', 780470, 0.004433209687813395, 37.46666666666667, 0.6749811016156517, '🇷🇺👨😊🎬🔗↘️', 'ВЕСТИ'],
+['club26284064', 709438, 0.006252328702541993, 112.46666666666667, 0.44016512007579284, '🇷🇺👨☠️🖼🎬🎧🔗➖↗️', 'ТАСС'],
+['club15548215', 682878, 0.0021524658904663587, 30.5, 0.3531371452168896, '🇷🇺👨☠️🎬🔗➖↘️', 'ВЕДОМОСТИ'],
+['club40316705', 1263251, 0.0020458181104536398, 147.73333333333332, 0.5004297557323869, '🇷🇺👨😊🎬🔗💬➕↗️🥈', 'Новости RT на русском'],
+['club15722194', 835859, 0.008784722123612322, 50.9, 0.6253536330258541, '🇷🇺👨😊🖼🎬📝🔗↗️', 'Комсомольская правда - KP.RU'],
+['club67991642', 630063, 0.00757815698120577, 32.96666666666667, 0.43551134059636126, '🇷🇺👨☠️🎬➖↗️', 'Лента.ру'],
+['club33393308', 858285, 0.002415977861122237, 26.533333333333335, 0.5066435599831711, '🇷🇺👨😊🎬➖↗️🥉', 'Стартапы и бизнес'],
+['club24565142', 1464448, 0.012652405455519171, 16.666666666666668, 0.5086006026021705, '🇷🇺👨😊🖼👁👍📢❤️➖↘️🥇', 'Клуб National Geographic Россия'],
+['club28429027', 778561, 0.0016435666106952786, 53.63333333333333, 0.3886181179773477, '🇷🇺👩☠️🖼🎬🎧✍️🛒↘️', 'Cosmopolitan'],
+['club28261334', 705520, 0.00505431046038493, 29.6, 0.478279110838971, '🇷🇺👨☠️🎬↗️', 'TJ'],
+['club60556804', 153766, 0.0038008375455401955, 49.06666666666667, 0.6106713840670669, '🇷🇺👨😊🎬🎧↗️', 'Эхо Москвы']
         ]);
 
         var table = new google.visualization.Table(document.getElementById('table_main_rating'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'views [100]');
+        data.addColumn('number', 'likes [100]');
+        data.addColumn('number', 'reposts [100]');
+        data.addColumn('number', 'comments [100]');
+        data.addColumn('number', 'likes per view [100]');
+        data.addColumn('number', 'likes diff');
+        data.addColumn('number', 'likes per view diff');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club24136539', 1863661, 8262, 719, 3845, 0.004433209687813395, -603, 0.00043512011166501035, '', 'ВЕСТИ'],
+['club26284064', 526044, 3289, 286, 687, 0.006252328702541993, -382, -2.8242246010704367e-05, '➖', 'ТАСС'],
+['club15548215', 375848, 809, 103, 880, 0.0021524658904663587, -381, -0.0004885217945414864, '➖', 'ВЕДОМОСТИ'],
+['club40316705', 876422, 1793, 134, 4741, 0.0020458181104536398, 50, 0.00045164675944143703, '💬➕', 'Новости RT на русском'],
+['club15722194', 1408468, 12373, 326, 2429, 0.008784722123612322, -1070, 0.000446979993856636, '', 'Комсомольская правда - KP.RU'],
+['club67991642', 1597618, 12107, 688, 2060, 0.00757815698120577, -6369, -0.0015490749322920206, '➖', 'Лента.ру'],
+['club33393308', 1098520, 2654, 369, 380, 0.002415977861122237, -1083, -0.00032912766787436326, '➖', 'Стартапы и бизнес'],
+['club24565142', 2302329, 29130, 1231, 1006, 0.012652405455519171, -2664, -0.00017283938951416326, '👁👍📢❤️➖', 'Клуб National Geographic Россия'],
+['club28429027', 281096, 462, 22, 67, 0.0016435666106952786, -13, 0.00044574135700849843, '', 'Cosmopolitan'],
+['club28261334', 1850104, 9351, 282, 1759, 0.00505431046038493, -1821, 0.0001454637713299619, '', 'TJ'],
+['club60556804', 279149, 1061, 115, 1929, 0.0038008375455401955, -26, 0.00022385004689760802, '', 'Эхо Москвы']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_likes'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'recent month posts per day');
+        data.addColumn('number', 'previous month posts per day');
+        data.addColumn('number', 'diff posts per day');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club24136539', 37.46666666666667, 37.833333333333336, -0.36666666666666664, '↘️', 'ВЕСТИ'],
+['club26284064', 112.46666666666667, 54.2, 58.266666666666666, '↗️', 'ТАСС'],
+['club15548215', 30.5, 31.5, -1.0, '↘️', 'ВЕДОМОСТИ'],
+['club40316705', 147.73333333333332, 18.933333333333334, 128.8, '↗️', 'Новости RT на русском'],
+['club15722194', 50.9, 44.666666666666664, 6.233333333333333, '↗️', 'Комсомольская правда - KP.RU'],
+['club67991642', 32.96666666666667, 32.56666666666667, 0.4, '↗️', 'Лента.ру'],
+['club33393308', 26.533333333333335, 25.733333333333334, 0.8, '↗️', 'Стартапы и бизнес'],
+['club24565142', 16.666666666666668, 17.966666666666665, -1.3, '↘️', 'Клуб National Geographic Россия'],
+['club28429027', 53.63333333333333, 53.86666666666667, -0.23333333333333334, '↘️', 'Cosmopolitan'],
+['club28261334', 29.6, 28.566666666666666, 1.0333333333333334, '↗️', 'TJ'],
+['club60556804', 49.06666666666667, 45.13333333333333, 3.933333333333333, '↗️', 'Эхо Москвы']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_posts_activity'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+    
+                
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'club');
+        data.addColumn('number', 'photos');
+        data.addColumn('number', 'albums');
+        data.addColumn('number', 'videos');
+        data.addColumn('number', 'audios');
+        data.addColumn('number', 'audio_playlists');
+        data.addColumn('number', 'podcasts');
+        data.addColumn('number', 'articles');
+        data.addColumn('number', 'topics');
+        data.addColumn('number', 'docs');
+        data.addColumn('number', 'market');
+        data.addColumn('number', 'links');
+        data.addColumn('string', 'status');
+        data.addColumn('string', 'name');
+
+        data.addRows([
+            ['club24136539', 0, 0, 10041, 0, 0, 27, 0, 0, 0, 0, 11, '🎬🔗', 'ВЕСТИ'],
+['club26284064', 7633, 741, 10002, 110, 18, 236, 673, 0, 0, 0, 15, '🖼🎬🎧🔗', 'ТАСС'],
+['club15548215', 0, 0, 757, 0, 0, 0, 23, 1, 0, 0, 10, '🎬🔗', 'ВЕДОМОСТИ'],
+['club40316705', 249, 11, 6146, 0, 0, 0, 0, 0, 0, 0, 13, '🎬🔗', 'Новости RT на русском'],
+['club15722194', 1492, 47, 8862, 2, 104, 5, 1569, 0, 0, 0, 51, '🖼🎬📝🔗', 'Комсомольская правда - KP.RU'],
+['club67991642', 602, 51, 8298, 3, 15, 0, 88, 0, 0, 0, 6, '🎬', 'Лента.ру'],
+['club33393308', 0, 0, 894, 0, 0, 3, 3, 0, 0, 0, 4, '🎬', 'Стартапы и бизнес'],
+['club24565142', 18771, 27, 225, 0, 0, 0, 78, 3, 0, 0, 8, '🖼', 'Клуб National Geographic Россия'],
+['club28429027', 7748, 81, 1345, 219, 2, 0, 1, 96, 0, 3, 5, '🖼🎬🎧✍️🛒', 'Cosmopolitan'],
+['club28261334', 0, 0, 745, 0, 0, 11, 1, 0, 0, 0, 5, '🎬', 'TJ'],
+['club60556804', 46, 3, 10062, 2022, 11, 64, 0, 6, 0, 0, 8, '🎬🎧', 'Эхо Москвы']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_media'));
 
         table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
     
@@ -149,6 +245,1018 @@
             }
 
             function drawCharts() {
+                
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 2324793, '#007bff'],
+['previous period', 2217309, '#007bff'],
+['recent period', 1863661, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club24136539'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 9618, '#28a745'],
+['previous period', 8865, '#28a745'],
+['recent period', 8262, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club24136539'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 847, '#fd7e14'],
+['previous period', 839, '#fd7e14'],
+['recent period', 719, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club24136539'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 4916, '#ffc107'],
+['previous period', 4233, '#ffc107'],
+['recent period', 3845, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club24136539'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 639802, '#007bff'],
+['previous period', 584501, '#007bff'],
+['recent period', 526044, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club26284064'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 4052, '#28a745'],
+['previous period', 3671, '#28a745'],
+['recent period', 3289, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club26284064'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 255, '#fd7e14'],
+['previous period', 296, '#fd7e14'],
+['recent period', 286, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club26284064'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 785, '#ffc107'],
+['previous period', 634, '#ffc107'],
+['recent period', 687, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club26284064'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 442748, '#007bff'],
+['previous period', 450589, '#007bff'],
+['recent period', 375848, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club15548215'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 990, '#28a745'],
+['previous period', 1190, '#28a745'],
+['recent period', 809, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club15548215'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 95, '#fd7e14'],
+['previous period', 256, '#fd7e14'],
+['recent period', 103, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club15548215'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 1032, '#ffc107'],
+['previous period', 1010, '#ffc107'],
+['recent period', 880, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club15548215'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 1102829, '#007bff'],
+['previous period', 1093358, '#007bff'],
+['recent period', 876422, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club40316705'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 2107, '#28a745'],
+['previous period', 1743, '#28a745'],
+['recent period', 1793, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club40316705'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 172, '#fd7e14'],
+['previous period', 157, '#fd7e14'],
+['recent period', 134, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club40316705'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 6628, '#ffc107'],
+['previous period', 5573, '#ffc107'],
+['recent period', 4741, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club40316705'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 1963877, '#007bff'],
+['previous period', 1612307, '#007bff'],
+['recent period', 1408468, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club15722194'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 17019, '#28a745'],
+['previous period', 13443, '#28a745'],
+['recent period', 12373, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club15722194'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 494, '#fd7e14'],
+['previous period', 518, '#fd7e14'],
+['recent period', 326, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club15722194'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 3162, '#ffc107'],
+['previous period', 2685, '#ffc107'],
+['recent period', 2429, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club15722194'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 1764675, '#007bff'],
+['previous period', 2024272, '#007bff'],
+['recent period', 1597618, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club67991642'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 16062, '#28a745'],
+['previous period', 18476, '#28a745'],
+['recent period', 12107, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club67991642'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 940, '#fd7e14'],
+['previous period', 793, '#fd7e14'],
+['recent period', 688, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club67991642'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 1806, '#ffc107'],
+['previous period', 2815, '#ffc107'],
+['recent period', 2060, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club67991642'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 1279331, '#007bff'],
+['previous period', 1361332, '#007bff'],
+['recent period', 1098520, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club33393308'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 3812, '#28a745'],
+['previous period', 3737, '#28a745'],
+['recent period', 2654, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club33393308'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 310, '#fd7e14'],
+['previous period', 475, '#fd7e14'],
+['recent period', 369, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club33393308'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 639, '#ffc107'],
+['previous period', 411, '#ffc107'],
+['recent period', 380, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club33393308'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 2593806, '#007bff'],
+['previous period', 2479017, '#007bff'],
+['recent period', 2302329, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club24565142'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 34140, '#28a745'],
+['previous period', 31794, '#28a745'],
+['recent period', 29130, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club24565142'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 1322, '#fd7e14'],
+['previous period', 1364, '#fd7e14'],
+['recent period', 1231, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club24565142'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 931, '#ffc107'],
+['previous period', 1323, '#ffc107'],
+['recent period', 1006, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club24565142'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 366569, '#007bff'],
+['previous period', 396552, '#007bff'],
+['recent period', 281096, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club28429027'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 641, '#28a745'],
+['previous period', 475, '#28a745'],
+['recent period', 462, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club28429027'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 27, '#fd7e14'],
+['previous period', 21, '#fd7e14'],
+['recent period', 22, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club28429027'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 71, '#ffc107'],
+['previous period', 77, '#ffc107'],
+['recent period', 67, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club28429027'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 2003376, '#007bff'],
+['previous period', 2275891, '#007bff'],
+['recent period', 1850104, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club28261334'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 8076, '#28a745'],
+['previous period', 11172, '#28a745'],
+['recent period', 9351, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club28261334'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 285, '#fd7e14'],
+['previous period', 267, '#fd7e14'],
+['recent period', 282, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club28261334'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 1721, '#ffc107'],
+['previous period', 2143, '#ffc107'],
+['recent period', 1759, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club28261334'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'views', { role: 'style' }],
+                ['old period', 362988, '#007bff'],
+['previous period', 303887, '#007bff'],
+['recent period', 279149, '#007bff']
+            ]);
+
+            var options = {
+                title: 'Views in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('views_chart_club60556804'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'likes', { role: 'style' }],
+                ['old period', 1549, '#28a745'],
+['previous period', 1087, '#28a745'],
+['recent period', 1061, '#28a745']
+            ]);
+
+            var options = {
+                title: 'Likes in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('likes_chart_club60556804'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'reposts', { role: 'style' }],
+                ['old period', 164, '#fd7e14'],
+['previous period', 89, '#fd7e14'],
+['recent period', 115, '#fd7e14']
+            ]);
+
+            var options = {
+                title: 'Reposts in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('reposts_chart_club60556804'));
+            chart.draw(data, options);
+            
+
+            var data = google.visualization.arrayToDataTable([
+                ['period',  'comments', { role: 'style' }],
+                ['old period', 2334, '#ffc107'],
+['previous period', 1781, '#ffc107'],
+['recent period', 1929, '#ffc107']
+            ]);
+
+            var options = {
+                title: 'Comments in Time',
+                legend: { position: "none" },
+                bar: {groupWidth: "66%"},
+                vAxis: {
+                    viewWindowMode: 'explicit',
+                    viewWindow: {
+                        min: 0,
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('comments_chart_club60556804'));
+            chart.draw(data, options);
+            
                 
         var data = google.visualization.arrayToDataTable([
             ['activity', 'count'],
@@ -481,6 +1589,761 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header" id="headingLikes">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseLikes" aria-expanded="false" aria-controls="collapseLikes">
+                            &#x25BC; Likes ♡
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseLikes" class="collapse multi-collapse" aria-labelledby="headingLikes" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4>👍 Likes</h4>
+    <div id="table_likes"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club24136539 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-28.userapi.com/impf/c858216/v858216961/e5101/d5vviuGZXc4.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=1e3a97bfeff34d33aa9708a629b953a2&c_uniq_tag=D2k3vN7WgYwQqCesNbe-MV6xUXjJvX083jYzrly-51I&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24136539">club24136539</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club24136539" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club24136539" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club24136539" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club24136539" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club26284064 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-22.userapi.com/impg/WTIwEYE9IXfgcFpZJQem1A7srNVSzWL9Fxwt8A/H353afd9uQI.jpg?size=50x0&quality=88&crop=0,0,512,512&sign=3dc501eb80a2478fccf088da48e3df4e&c_uniq_tag=F0AaOqq53UutwmD4OI-XzWbHiRBhTjZcYZA-nX1Dv44&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ТАСС</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club26284064">club26284064</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club26284064" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club26284064" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club26284064" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club26284064" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club15548215 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-88.userapi.com/impf/TXSwJdhV1jUZ4idTlHmDw_lPxr_VyTO2dR3Vew/ETEyWeI_yyI.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=25cded5d3b8e7d55abcf409b47ff75d2&c_uniq_tag=ZyXEBw0980mtskVVqoROQvDjS3ObCOjJ-98muYSijMg&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕДОМОСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15548215">club15548215</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club15548215" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club15548215" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club15548215" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club15548215" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club40316705 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-91.userapi.com/impf/c855620/v855620039/42803/f3MAfGAnO0g.jpg?size=50x0&quality=88&crop=66,0,934,934&sign=89ca1940158e7265652a877a066586d0&c_uniq_tag=KWxpLGI25xzDOFdTOMDF4Evvtb4j5Mo2fckbdlVRVS4&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Новости RT на русском</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club40316705">club40316705</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club40316705" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club40316705" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club40316705" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club40316705" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club15722194 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-90.userapi.com/impg/vu_U9qI-eo0Pl-oYVLYUVN1lqNSvulnXG4ttjQ/0pqlJO8YBp8.jpg?size=50x0&quality=88&crop=31,31,897,897&sign=054b33ce3b728bad56e991aa343a04f1&c_uniq_tag=S-6_qUPxbAc7Ulj9EtPVPfVODxqPwlOnqvjTLflGkeE&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Комсомольская правда - KP.RU</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15722194">club15722194</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club15722194" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club15722194" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club15722194" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club15722194" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club67991642 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-84.userapi.com/impf/c858524/v858524478/4350b/8eLhiCRsw7A.jpg?size=50x0&quality=88&crop=44,40,395,395&sign=96430f3b63fd31669c6b28b5d28c15c3&c_uniq_tag=7e4EiZxoHK5vJinnmbXNHuyGdkX7oHOfQqL0GsPyPns&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Лента.ру</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club67991642">club67991642</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club67991642" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club67991642" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club67991642" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club67991642" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club33393308 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-89.userapi.com/impf/c627624/v627624388/2dec5/_Qe8NHpg-xU.jpg?size=50x0&quality=88&crop=0,0,1000,1000&sign=798cb4d2124bd3efaff6dd5514a23e4d&c_uniq_tag=Ju1sNmZ2NXxA9AxVLqcN4nqnIYRBa2wN22nXWmQ8qiQ&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Стартапы и бизнес</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club33393308">club33393308</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club33393308" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club33393308" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club33393308" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club33393308" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club24565142 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-26.userapi.com/impf/5AGrdewW5U-HRLU4CiomnawabIXNmXHqc25KDw/q2eb9PpD4Y8.jpg?size=50x0&quality=88&crop=0,28,2132,2132&sign=3dad107c0410212e1a01c1650ff6c529&c_uniq_tag=y-u_7fda0nkBUE5Sx-tK-2d6VcrKwfwzrs_eaor5u9s&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Клуб National Geographic Россия</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24565142">club24565142</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club24565142" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club24565142" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club24565142" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club24565142" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club28429027 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-97.userapi.com/impg/Hu63_0NoLnUa2j8ydiEsUGB-Pb1Jh_pSQTITLw/-tHdgZYR-Xg.jpg?size=50x0&quality=88&crop=0,0,400,400&sign=ce4dd92defef8ae556b7e80e8a4d57cb&c_uniq_tag=Xl8XP84SBApOLA-ISYS-f-PX1ZJd8yQVJnNb2Qbyqro&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Cosmopolitan</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28429027">club28429027</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club28429027" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club28429027" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club28429027" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club28429027" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club28261334 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-25.userapi.com/impg/PT-PBYGkA2s84ZpTW524nMhcRKZ9WPTXNnX8Cw/uYBMvaImcuo.jpg?size=50x0&quality=88&crop=366,116,273,273&sign=14a1472a4b51b3c5a6a1fe186ee48ec1&c_uniq_tag=dUZeTpcRmZytUTI5D0rOxV7XkE8mevCuAsGnElr5etM&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">TJ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28261334">club28261334</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club28261334" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club28261334" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club28261334" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club28261334" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+
+        <div class="club60556804 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-18.userapi.com/impf/c851032/v851032313/17bb4f/nIgvHoSDVAk.jpg?size=50x0&quality=88&crop=80,80,479,479&sign=ea9652cc33b08305f697fa95aaec0746&c_uniq_tag=6w91SjNslrPpdrjRgB_W2Lw8C2mYTM4eNixBULLN0CY&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Эхо Москвы</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club60556804">club60556804</a> 👥</h6>
+        </div>
+        </div>
+        <div style="width: 400px; height; 400px;">
+        <div class="row">
+        <div id="views_chart_club60556804" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="likes_chart_club60556804" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="reposts_chart_club60556804" style="width: auto; height: auto;"></div>
+        </div>
+        <div class="row">
+        <div id="comments_chart_club60556804" style="width: auto; height: auto;"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingPosts">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapsePosts" aria-expanded="false" aria-controls="collapsePosts">
+                            &#x25BC; Posts Activity ★
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapsePosts" class="collapse multi-collapse" aria-labelledby="headingPosts" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4> ⭐ Posts Activity </h4>
+    <div id="table_posts_activity"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club24136539 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-28.userapi.com/impf/c858216/v858216961/e5101/d5vviuGZXc4.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=1e3a97bfeff34d33aa9708a629b953a2&c_uniq_tag=D2k3vN7WgYwQqCesNbe-MV6xUXjJvX083jYzrly-51I&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24136539">club24136539</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_24136539.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club26284064 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-22.userapi.com/impg/WTIwEYE9IXfgcFpZJQem1A7srNVSzWL9Fxwt8A/H353afd9uQI.jpg?size=50x0&quality=88&crop=0,0,512,512&sign=3dc501eb80a2478fccf088da48e3df4e&c_uniq_tag=F0AaOqq53UutwmD4OI-XzWbHiRBhTjZcYZA-nX1Dv44&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ТАСС</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club26284064">club26284064</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_26284064.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15548215 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-88.userapi.com/impf/TXSwJdhV1jUZ4idTlHmDw_lPxr_VyTO2dR3Vew/ETEyWeI_yyI.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=25cded5d3b8e7d55abcf409b47ff75d2&c_uniq_tag=ZyXEBw0980mtskVVqoROQvDjS3ObCOjJ-98muYSijMg&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕДОМОСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15548215">club15548215</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_15548215.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club40316705 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-91.userapi.com/impf/c855620/v855620039/42803/f3MAfGAnO0g.jpg?size=50x0&quality=88&crop=66,0,934,934&sign=89ca1940158e7265652a877a066586d0&c_uniq_tag=KWxpLGI25xzDOFdTOMDF4Evvtb4j5Mo2fckbdlVRVS4&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Новости RT на русском</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club40316705">club40316705</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_40316705.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15722194 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-90.userapi.com/impg/vu_U9qI-eo0Pl-oYVLYUVN1lqNSvulnXG4ttjQ/0pqlJO8YBp8.jpg?size=50x0&quality=88&crop=31,31,897,897&sign=054b33ce3b728bad56e991aa343a04f1&c_uniq_tag=S-6_qUPxbAc7Ulj9EtPVPfVODxqPwlOnqvjTLflGkeE&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Комсомольская правда - KP.RU</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15722194">club15722194</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_15722194.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club67991642 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-84.userapi.com/impf/c858524/v858524478/4350b/8eLhiCRsw7A.jpg?size=50x0&quality=88&crop=44,40,395,395&sign=96430f3b63fd31669c6b28b5d28c15c3&c_uniq_tag=7e4EiZxoHK5vJinnmbXNHuyGdkX7oHOfQqL0GsPyPns&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Лента.ру</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club67991642">club67991642</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_67991642.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club33393308 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-89.userapi.com/impf/c627624/v627624388/2dec5/_Qe8NHpg-xU.jpg?size=50x0&quality=88&crop=0,0,1000,1000&sign=798cb4d2124bd3efaff6dd5514a23e4d&c_uniq_tag=Ju1sNmZ2NXxA9AxVLqcN4nqnIYRBa2wN22nXWmQ8qiQ&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Стартапы и бизнес</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club33393308">club33393308</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_33393308.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club24565142 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-26.userapi.com/impf/5AGrdewW5U-HRLU4CiomnawabIXNmXHqc25KDw/q2eb9PpD4Y8.jpg?size=50x0&quality=88&crop=0,28,2132,2132&sign=3dad107c0410212e1a01c1650ff6c529&c_uniq_tag=y-u_7fda0nkBUE5Sx-tK-2d6VcrKwfwzrs_eaor5u9s&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Клуб National Geographic Россия</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24565142">club24565142</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_24565142.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28429027 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-97.userapi.com/impg/Hu63_0NoLnUa2j8ydiEsUGB-Pb1Jh_pSQTITLw/-tHdgZYR-Xg.jpg?size=50x0&quality=88&crop=0,0,400,400&sign=ce4dd92defef8ae556b7e80e8a4d57cb&c_uniq_tag=Xl8XP84SBApOLA-ISYS-f-PX1ZJd8yQVJnNb2Qbyqro&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Cosmopolitan</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28429027">club28429027</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_28429027.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28261334 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-25.userapi.com/impg/PT-PBYGkA2s84ZpTW524nMhcRKZ9WPTXNnX8Cw/uYBMvaImcuo.jpg?size=50x0&quality=88&crop=366,116,273,273&sign=14a1472a4b51b3c5a6a1fe186ee48ec1&c_uniq_tag=dUZeTpcRmZytUTI5D0rOxV7XkE8mevCuAsGnElr5etM&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">TJ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28261334">club28261334</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_28261334.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club60556804 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-18.userapi.com/impf/c851032/v851032313/17bb4f/nIgvHoSDVAk.jpg?size=50x0&quality=88&crop=80,80,479,479&sign=ea9652cc33b08305f697fa95aaec0746&c_uniq_tag=6w91SjNslrPpdrjRgB_W2Lw8C2mYTM4eNixBULLN0CY&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Эхо Москвы</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club60556804">club60556804</a> 🗓️</h6>
+        </div>
+        </div>
+        <iframe src="calendar_heatmap/calendar_heatmap_60556804.svg" scorlling="no" style="width: 400px; height: 250px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingMedia">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseMedia" aria-expanded="false" aria-controls="collapseMedia">
+                            &#x25BC; Media ✵
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseMedia" class="collapse multi-collapse" aria-labelledby="headingMedia" data-parent="#accordion">
+                    <div class="card-body">
+                        
+    <div class="d-block" style="margin: 10px; text-align: center; padding: 20px;">
+    <h4> 🎨 Media </h4>
+    <div id="table_media"></div>
+    </div>
+    <p></p>
+    
+
+        <div class="club24136539 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-28.userapi.com/impf/c858216/v858216961/e5101/d5vviuGZXc4.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=1e3a97bfeff34d33aa9708a629b953a2&c_uniq_tag=D2k3vN7WgYwQqCesNbe-MV6xUXjJvX083jYzrly-51I&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24136539">club24136539</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_24136539.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club26284064 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-22.userapi.com/impg/WTIwEYE9IXfgcFpZJQem1A7srNVSzWL9Fxwt8A/H353afd9uQI.jpg?size=50x0&quality=88&crop=0,0,512,512&sign=3dc501eb80a2478fccf088da48e3df4e&c_uniq_tag=F0AaOqq53UutwmD4OI-XzWbHiRBhTjZcYZA-nX1Dv44&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ТАСС</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club26284064">club26284064</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_26284064.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15548215 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-88.userapi.com/impf/TXSwJdhV1jUZ4idTlHmDw_lPxr_VyTO2dR3Vew/ETEyWeI_yyI.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=25cded5d3b8e7d55abcf409b47ff75d2&c_uniq_tag=ZyXEBw0980mtskVVqoROQvDjS3ObCOjJ-98muYSijMg&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕДОМОСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15548215">club15548215</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_15548215.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club40316705 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-91.userapi.com/impf/c855620/v855620039/42803/f3MAfGAnO0g.jpg?size=50x0&quality=88&crop=66,0,934,934&sign=89ca1940158e7265652a877a066586d0&c_uniq_tag=KWxpLGI25xzDOFdTOMDF4Evvtb4j5Mo2fckbdlVRVS4&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Новости RT на русском</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club40316705">club40316705</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_40316705.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club15722194 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-90.userapi.com/impg/vu_U9qI-eo0Pl-oYVLYUVN1lqNSvulnXG4ttjQ/0pqlJO8YBp8.jpg?size=50x0&quality=88&crop=31,31,897,897&sign=054b33ce3b728bad56e991aa343a04f1&c_uniq_tag=S-6_qUPxbAc7Ulj9EtPVPfVODxqPwlOnqvjTLflGkeE&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Комсомольская правда - KP.RU</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15722194">club15722194</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_15722194.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club67991642 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-84.userapi.com/impf/c858524/v858524478/4350b/8eLhiCRsw7A.jpg?size=50x0&quality=88&crop=44,40,395,395&sign=96430f3b63fd31669c6b28b5d28c15c3&c_uniq_tag=7e4EiZxoHK5vJinnmbXNHuyGdkX7oHOfQqL0GsPyPns&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Лента.ру</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club67991642">club67991642</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_67991642.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club33393308 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-89.userapi.com/impf/c627624/v627624388/2dec5/_Qe8NHpg-xU.jpg?size=50x0&quality=88&crop=0,0,1000,1000&sign=798cb4d2124bd3efaff6dd5514a23e4d&c_uniq_tag=Ju1sNmZ2NXxA9AxVLqcN4nqnIYRBa2wN22nXWmQ8qiQ&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Стартапы и бизнес</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club33393308">club33393308</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_33393308.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club24565142 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-26.userapi.com/impf/5AGrdewW5U-HRLU4CiomnawabIXNmXHqc25KDw/q2eb9PpD4Y8.jpg?size=50x0&quality=88&crop=0,28,2132,2132&sign=3dad107c0410212e1a01c1650ff6c529&c_uniq_tag=y-u_7fda0nkBUE5Sx-tK-2d6VcrKwfwzrs_eaor5u9s&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Клуб National Geographic Россия</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24565142">club24565142</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_24565142.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28429027 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-97.userapi.com/impg/Hu63_0NoLnUa2j8ydiEsUGB-Pb1Jh_pSQTITLw/-tHdgZYR-Xg.jpg?size=50x0&quality=88&crop=0,0,400,400&sign=ce4dd92defef8ae556b7e80e8a4d57cb&c_uniq_tag=Xl8XP84SBApOLA-ISYS-f-PX1ZJd8yQVJnNb2Qbyqro&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Cosmopolitan</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28429027">club28429027</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_28429027.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club28261334 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-25.userapi.com/impg/PT-PBYGkA2s84ZpTW524nMhcRKZ9WPTXNnX8Cw/uYBMvaImcuo.jpg?size=50x0&quality=88&crop=366,116,273,273&sign=14a1472a4b51b3c5a6a1fe186ee48ec1&c_uniq_tag=dUZeTpcRmZytUTI5D0rOxV7XkE8mevCuAsGnElr5etM&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">TJ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28261334">club28261334</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_28261334.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+
+        <div class="club60556804 d-inline-block">
+        <div class="d-block" style="margin: 10px;">
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-18.userapi.com/impf/c851032/v851032313/17bb4f/nIgvHoSDVAk.jpg?size=50x0&quality=88&crop=80,80,479,479&sign=ea9652cc33b08305f697fa95aaec0746&c_uniq_tag=6w91SjNslrPpdrjRgB_W2Lw8C2mYTM4eNixBULLN0CY&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Эхо Москвы</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club60556804">club60556804</a> 📎</h6>
+        </div>
+        </div>
+        <iframe src="media_radar/media_radar_60556804.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
+        </iframe>
+        </div>
+        </div>
+        
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-header" id="headingPyramid">
                     <h5 class="mb-0">
@@ -501,8 +2364,15 @@
 
         <div class="club24136539 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club24136539">club24136539</a></h5>
-        <h6 style="max-width: 400px;">ВЕСТИ</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-28.userapi.com/impf/c858216/v858216961/e5101/d5vviuGZXc4.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=1e3a97bfeff34d33aa9708a629b953a2&c_uniq_tag=D2k3vN7WgYwQqCesNbe-MV6xUXjJvX083jYzrly-51I&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24136539">club24136539</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_24136539.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -511,8 +2381,15 @@
 
         <div class="club26284064 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club26284064">club26284064</a></h5>
-        <h6 style="max-width: 400px;">ТАСС</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-22.userapi.com/impg/WTIwEYE9IXfgcFpZJQem1A7srNVSzWL9Fxwt8A/H353afd9uQI.jpg?size=50x0&quality=88&crop=0,0,512,512&sign=3dc501eb80a2478fccf088da48e3df4e&c_uniq_tag=F0AaOqq53UutwmD4OI-XzWbHiRBhTjZcYZA-nX1Dv44&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ТАСС</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club26284064">club26284064</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_26284064.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -521,8 +2398,15 @@
 
         <div class="club15548215 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club15548215">club15548215</a></h5>
-        <h6 style="max-width: 400px;">ВЕДОМОСТИ</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-88.userapi.com/impf/TXSwJdhV1jUZ4idTlHmDw_lPxr_VyTO2dR3Vew/ETEyWeI_yyI.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=25cded5d3b8e7d55abcf409b47ff75d2&c_uniq_tag=ZyXEBw0980mtskVVqoROQvDjS3ObCOjJ-98muYSijMg&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕДОМОСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15548215">club15548215</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_15548215.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -531,8 +2415,15 @@
 
         <div class="club40316705 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club40316705">club40316705</a></h5>
-        <h6 style="max-width: 400px;">Новости RT на русском</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-91.userapi.com/impf/c855620/v855620039/42803/f3MAfGAnO0g.jpg?size=50x0&quality=88&crop=66,0,934,934&sign=89ca1940158e7265652a877a066586d0&c_uniq_tag=KWxpLGI25xzDOFdTOMDF4Evvtb4j5Mo2fckbdlVRVS4&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Новости RT на русском</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club40316705">club40316705</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_40316705.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -541,8 +2432,15 @@
 
         <div class="club15722194 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club15722194">club15722194</a></h5>
-        <h6 style="max-width: 400px;">Комсомольская правда - KP.RU</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-90.userapi.com/impg/vu_U9qI-eo0Pl-oYVLYUVN1lqNSvulnXG4ttjQ/0pqlJO8YBp8.jpg?size=50x0&quality=88&crop=31,31,897,897&sign=054b33ce3b728bad56e991aa343a04f1&c_uniq_tag=S-6_qUPxbAc7Ulj9EtPVPfVODxqPwlOnqvjTLflGkeE&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Комсомольская правда - KP.RU</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15722194">club15722194</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_15722194.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -551,8 +2449,15 @@
 
         <div class="club67991642 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club67991642">club67991642</a></h5>
-        <h6 style="max-width: 400px;">Лента.ру</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-84.userapi.com/impf/c858524/v858524478/4350b/8eLhiCRsw7A.jpg?size=50x0&quality=88&crop=44,40,395,395&sign=96430f3b63fd31669c6b28b5d28c15c3&c_uniq_tag=7e4EiZxoHK5vJinnmbXNHuyGdkX7oHOfQqL0GsPyPns&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Лента.ру</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club67991642">club67991642</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_67991642.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -561,8 +2466,15 @@
 
         <div class="club33393308 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club33393308">club33393308</a></h5>
-        <h6 style="max-width: 400px;">Стартапы и бизнес</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-89.userapi.com/impf/c627624/v627624388/2dec5/_Qe8NHpg-xU.jpg?size=50x0&quality=88&crop=0,0,1000,1000&sign=798cb4d2124bd3efaff6dd5514a23e4d&c_uniq_tag=Ju1sNmZ2NXxA9AxVLqcN4nqnIYRBa2wN22nXWmQ8qiQ&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Стартапы и бизнес</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club33393308">club33393308</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_33393308.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -571,8 +2483,15 @@
 
         <div class="club24565142 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club24565142">club24565142</a></h5>
-        <h6 style="max-width: 400px;">Клуб National Geographic Россия</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-26.userapi.com/impf/5AGrdewW5U-HRLU4CiomnawabIXNmXHqc25KDw/q2eb9PpD4Y8.jpg?size=50x0&quality=88&crop=0,28,2132,2132&sign=3dad107c0410212e1a01c1650ff6c529&c_uniq_tag=y-u_7fda0nkBUE5Sx-tK-2d6VcrKwfwzrs_eaor5u9s&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Клуб National Geographic Россия</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24565142">club24565142</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_24565142.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -581,8 +2500,15 @@
 
         <div class="club28429027 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👩 <a href="https://vk.com/club28429027">club28429027</a></h5>
-        <h6 style="max-width: 400px;">Cosmopolitan</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-97.userapi.com/impg/Hu63_0NoLnUa2j8ydiEsUGB-Pb1Jh_pSQTITLw/-tHdgZYR-Xg.jpg?size=50x0&quality=88&crop=0,0,400,400&sign=ce4dd92defef8ae556b7e80e8a4d57cb&c_uniq_tag=Xl8XP84SBApOLA-ISYS-f-PX1ZJd8yQVJnNb2Qbyqro&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Cosmopolitan</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28429027">club28429027</a> 👩</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_28429027.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -591,8 +2517,15 @@
 
         <div class="club28261334 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club28261334">club28261334</a></h5>
-        <h6 style="max-width: 400px;">TJ</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-25.userapi.com/impg/PT-PBYGkA2s84ZpTW524nMhcRKZ9WPTXNnX8Cw/uYBMvaImcuo.jpg?size=50x0&quality=88&crop=366,116,273,273&sign=14a1472a4b51b3c5a6a1fe186ee48ec1&c_uniq_tag=dUZeTpcRmZytUTI5D0rOxV7XkE8mevCuAsGnElr5etM&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">TJ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28261334">club28261334</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_28261334.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -601,8 +2534,15 @@
 
         <div class="club60556804 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👨 <a href="https://vk.com/club60556804">club60556804</a></h5>
-        <h6 style="max-width: 400px;">Эхо Москвы</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-18.userapi.com/impf/c851032/v851032313/17bb4f/nIgvHoSDVAk.jpg?size=50x0&quality=88&crop=80,80,479,479&sign=ea9652cc33b08305f697fa95aaec0746&c_uniq_tag=6w91SjNslrPpdrjRgB_W2Lw8C2mYTM4eNixBULLN0CY&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Эхо Москвы</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club60556804">club60556804</a> 👨</h6>
+        </div>
+        </div>
         <iframe src="population_pyramid/population_pyramid_60556804.html" scorlling="no" style="width: 395px; height: 395px;" frameBorder="0">
         </iframe>
         </div>
@@ -631,8 +2571,15 @@
 
         <div class="club24136539 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club24136539">club24136539</a></h5>
-        <h6 style="max-width: 400px;">ВЕСТИ</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-28.userapi.com/impf/c858216/v858216961/e5101/d5vviuGZXc4.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=1e3a97bfeff34d33aa9708a629b953a2&c_uniq_tag=D2k3vN7WgYwQqCesNbe-MV6xUXjJvX083jYzrly-51I&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24136539">club24136539</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_24136539.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -641,8 +2588,15 @@
 
         <div class="club26284064 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club26284064">club26284064</a></h5>
-        <h6 style="max-width: 400px;">ТАСС</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-22.userapi.com/impg/WTIwEYE9IXfgcFpZJQem1A7srNVSzWL9Fxwt8A/H353afd9uQI.jpg?size=50x0&quality=88&crop=0,0,512,512&sign=3dc501eb80a2478fccf088da48e3df4e&c_uniq_tag=F0AaOqq53UutwmD4OI-XzWbHiRBhTjZcYZA-nX1Dv44&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ТАСС</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club26284064">club26284064</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_26284064.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -651,8 +2605,15 @@
 
         <div class="club15548215 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club15548215">club15548215</a></h5>
-        <h6 style="max-width: 400px;">ВЕДОМОСТИ</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-88.userapi.com/impf/TXSwJdhV1jUZ4idTlHmDw_lPxr_VyTO2dR3Vew/ETEyWeI_yyI.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=25cded5d3b8e7d55abcf409b47ff75d2&c_uniq_tag=ZyXEBw0980mtskVVqoROQvDjS3ObCOjJ-98muYSijMg&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕДОМОСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15548215">club15548215</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_15548215.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -661,8 +2622,15 @@
 
         <div class="club40316705 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club40316705">club40316705</a></h5>
-        <h6 style="max-width: 400px;">Новости RT на русском</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-91.userapi.com/impf/c855620/v855620039/42803/f3MAfGAnO0g.jpg?size=50x0&quality=88&crop=66,0,934,934&sign=89ca1940158e7265652a877a066586d0&c_uniq_tag=KWxpLGI25xzDOFdTOMDF4Evvtb4j5Mo2fckbdlVRVS4&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Новости RT на русском</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club40316705">club40316705</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_40316705.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -671,8 +2639,15 @@
 
         <div class="club15722194 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club15722194">club15722194</a></h5>
-        <h6 style="max-width: 400px;">Комсомольская правда - KP.RU</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-90.userapi.com/impg/vu_U9qI-eo0Pl-oYVLYUVN1lqNSvulnXG4ttjQ/0pqlJO8YBp8.jpg?size=50x0&quality=88&crop=31,31,897,897&sign=054b33ce3b728bad56e991aa343a04f1&c_uniq_tag=S-6_qUPxbAc7Ulj9EtPVPfVODxqPwlOnqvjTLflGkeE&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Комсомольская правда - KP.RU</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15722194">club15722194</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_15722194.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -681,8 +2656,15 @@
 
         <div class="club67991642 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club67991642">club67991642</a></h5>
-        <h6 style="max-width: 400px;">Лента.ру</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-84.userapi.com/impf/c858524/v858524478/4350b/8eLhiCRsw7A.jpg?size=50x0&quality=88&crop=44,40,395,395&sign=96430f3b63fd31669c6b28b5d28c15c3&c_uniq_tag=7e4EiZxoHK5vJinnmbXNHuyGdkX7oHOfQqL0GsPyPns&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Лента.ру</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club67991642">club67991642</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_67991642.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -691,8 +2673,15 @@
 
         <div class="club33393308 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club33393308">club33393308</a></h5>
-        <h6 style="max-width: 400px;">Стартапы и бизнес</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-89.userapi.com/impf/c627624/v627624388/2dec5/_Qe8NHpg-xU.jpg?size=50x0&quality=88&crop=0,0,1000,1000&sign=798cb4d2124bd3efaff6dd5514a23e4d&c_uniq_tag=Ju1sNmZ2NXxA9AxVLqcN4nqnIYRBa2wN22nXWmQ8qiQ&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Стартапы и бизнес</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club33393308">club33393308</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_33393308.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -701,8 +2690,15 @@
 
         <div class="club24565142 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club24565142">club24565142</a></h5>
-        <h6 style="max-width: 400px;">Клуб National Geographic Россия</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-26.userapi.com/impf/5AGrdewW5U-HRLU4CiomnawabIXNmXHqc25KDw/q2eb9PpD4Y8.jpg?size=50x0&quality=88&crop=0,28,2132,2132&sign=3dad107c0410212e1a01c1650ff6c529&c_uniq_tag=y-u_7fda0nkBUE5Sx-tK-2d6VcrKwfwzrs_eaor5u9s&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Клуб National Geographic Россия</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24565142">club24565142</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_24565142.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -711,8 +2707,15 @@
 
         <div class="club28429027 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club28429027">club28429027</a></h5>
-        <h6 style="max-width: 400px;">Cosmopolitan</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-97.userapi.com/impg/Hu63_0NoLnUa2j8ydiEsUGB-Pb1Jh_pSQTITLw/-tHdgZYR-Xg.jpg?size=50x0&quality=88&crop=0,0,400,400&sign=ce4dd92defef8ae556b7e80e8a4d57cb&c_uniq_tag=Xl8XP84SBApOLA-ISYS-f-PX1ZJd8yQVJnNb2Qbyqro&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Cosmopolitan</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28429027">club28429027</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_28429027.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -721,8 +2724,15 @@
 
         <div class="club28261334 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club28261334">club28261334</a></h5>
-        <h6 style="max-width: 400px;">TJ</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-25.userapi.com/impg/PT-PBYGkA2s84ZpTW524nMhcRKZ9WPTXNnX8Cw/uYBMvaImcuo.jpg?size=50x0&quality=88&crop=366,116,273,273&sign=14a1472a4b51b3c5a6a1fe186ee48ec1&c_uniq_tag=dUZeTpcRmZytUTI5D0rOxV7XkE8mevCuAsGnElr5etM&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">TJ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28261334">club28261334</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_28261334.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -731,8 +2741,15 @@
 
         <div class="club60556804 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🌎 <a href="https://vk.com/club60556804">club60556804</a></h5>
-        <h6 style="max-width: 400px;">Эхо Москвы</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-18.userapi.com/impf/c851032/v851032313/17bb4f/nIgvHoSDVAk.jpg?size=50x0&quality=88&crop=80,80,479,479&sign=ea9652cc33b08305f697fa95aaec0746&c_uniq_tag=6w91SjNslrPpdrjRgB_W2Lw8C2mYTM4eNixBULLN0CY&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Эхо Москвы</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club60556804">club60556804</a> 🌎</h6>
+        </div>
+        </div>
         <iframe src="geo_sunburst/geo_sunburst_60556804.html" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -761,99 +2778,176 @@
 
         <div class="club24136539 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club24136539">club24136539</a></h5>
-        <h6 style="max-width: 400px;">ВЕСТИ</h6>
-        <div id="vk_activity_pie_club24136539" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-28.userapi.com/impf/c858216/v858216961/e5101/d5vviuGZXc4.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=1e3a97bfeff34d33aa9708a629b953a2&c_uniq_tag=D2k3vN7WgYwQqCesNbe-MV6xUXjJvX083jYzrly-51I&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24136539">club24136539</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club24136539" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club26284064 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club26284064">club26284064</a></h5>
-        <h6 style="max-width: 400px;">ТАСС</h6>
-        <div id="vk_activity_pie_club26284064" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-22.userapi.com/impg/WTIwEYE9IXfgcFpZJQem1A7srNVSzWL9Fxwt8A/H353afd9uQI.jpg?size=50x0&quality=88&crop=0,0,512,512&sign=3dc501eb80a2478fccf088da48e3df4e&c_uniq_tag=F0AaOqq53UutwmD4OI-XzWbHiRBhTjZcYZA-nX1Dv44&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ТАСС</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club26284064">club26284064</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club26284064" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club15548215 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club15548215">club15548215</a></h5>
-        <h6 style="max-width: 400px;">ВЕДОМОСТИ</h6>
-        <div id="vk_activity_pie_club15548215" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-88.userapi.com/impf/TXSwJdhV1jUZ4idTlHmDw_lPxr_VyTO2dR3Vew/ETEyWeI_yyI.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=25cded5d3b8e7d55abcf409b47ff75d2&c_uniq_tag=ZyXEBw0980mtskVVqoROQvDjS3ObCOjJ-98muYSijMg&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕДОМОСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15548215">club15548215</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club15548215" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club40316705 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club40316705">club40316705</a></h5>
-        <h6 style="max-width: 400px;">Новости RT на русском</h6>
-        <div id="vk_activity_pie_club40316705" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-91.userapi.com/impf/c855620/v855620039/42803/f3MAfGAnO0g.jpg?size=50x0&quality=88&crop=66,0,934,934&sign=89ca1940158e7265652a877a066586d0&c_uniq_tag=KWxpLGI25xzDOFdTOMDF4Evvtb4j5Mo2fckbdlVRVS4&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Новости RT на русском</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club40316705">club40316705</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club40316705" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club15722194 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club15722194">club15722194</a></h5>
-        <h6 style="max-width: 400px;">Комсомольская правда - KP.RU</h6>
-        <div id="vk_activity_pie_club15722194" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-90.userapi.com/impg/vu_U9qI-eo0Pl-oYVLYUVN1lqNSvulnXG4ttjQ/0pqlJO8YBp8.jpg?size=50x0&quality=88&crop=31,31,897,897&sign=054b33ce3b728bad56e991aa343a04f1&c_uniq_tag=S-6_qUPxbAc7Ulj9EtPVPfVODxqPwlOnqvjTLflGkeE&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Комсомольская правда - KP.RU</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15722194">club15722194</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club15722194" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club67991642 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club67991642">club67991642</a></h5>
-        <h6 style="max-width: 400px;">Лента.ру</h6>
-        <div id="vk_activity_pie_club67991642" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-84.userapi.com/impf/c858524/v858524478/4350b/8eLhiCRsw7A.jpg?size=50x0&quality=88&crop=44,40,395,395&sign=96430f3b63fd31669c6b28b5d28c15c3&c_uniq_tag=7e4EiZxoHK5vJinnmbXNHuyGdkX7oHOfQqL0GsPyPns&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Лента.ру</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club67991642">club67991642</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club67991642" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club33393308 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club33393308">club33393308</a></h5>
-        <h6 style="max-width: 400px;">Стартапы и бизнес</h6>
-        <div id="vk_activity_pie_club33393308" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-89.userapi.com/impf/c627624/v627624388/2dec5/_Qe8NHpg-xU.jpg?size=50x0&quality=88&crop=0,0,1000,1000&sign=798cb4d2124bd3efaff6dd5514a23e4d&c_uniq_tag=Ju1sNmZ2NXxA9AxVLqcN4nqnIYRBa2wN22nXWmQ8qiQ&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Стартапы и бизнес</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club33393308">club33393308</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club33393308" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club24565142 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club24565142">club24565142</a></h5>
-        <h6 style="max-width: 400px;">Клуб National Geographic Россия</h6>
-        <div id="vk_activity_pie_club24565142" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-26.userapi.com/impf/5AGrdewW5U-HRLU4CiomnawabIXNmXHqc25KDw/q2eb9PpD4Y8.jpg?size=50x0&quality=88&crop=0,28,2132,2132&sign=3dad107c0410212e1a01c1650ff6c529&c_uniq_tag=y-u_7fda0nkBUE5Sx-tK-2d6VcrKwfwzrs_eaor5u9s&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Клуб National Geographic Россия</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24565142">club24565142</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club24565142" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club28429027 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club28429027">club28429027</a></h5>
-        <h6 style="max-width: 400px;">Cosmopolitan</h6>
-        <div id="vk_activity_pie_club28429027" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-97.userapi.com/impg/Hu63_0NoLnUa2j8ydiEsUGB-Pb1Jh_pSQTITLw/-tHdgZYR-Xg.jpg?size=50x0&quality=88&crop=0,0,400,400&sign=ce4dd92defef8ae556b7e80e8a4d57cb&c_uniq_tag=Xl8XP84SBApOLA-ISYS-f-PX1ZJd8yQVJnNb2Qbyqro&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Cosmopolitan</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28429027">club28429027</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club28429027" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club28261334 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club28261334">club28261334</a></h5>
-        <h6 style="max-width: 400px;">TJ</h6>
-        <div id="vk_activity_pie_club28261334" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-25.userapi.com/impg/PT-PBYGkA2s84ZpTW524nMhcRKZ9WPTXNnX8Cw/uYBMvaImcuo.jpg?size=50x0&quality=88&crop=366,116,273,273&sign=14a1472a4b51b3c5a6a1fe186ee48ec1&c_uniq_tag=dUZeTpcRmZytUTI5D0rOxV7XkE8mevCuAsGnElr5etM&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">TJ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28261334">club28261334</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club28261334" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
 
         <div class="club60556804 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">👥 <a href="https://vk.com/club60556804">club60556804</a></h5>
-        <h6 style="max-width: 400px;">Эхо Москвы</h6>
-        <div id="vk_activity_pie_club60556804" style="width: 400px; height: 400px;"></div>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-18.userapi.com/impf/c851032/v851032313/17bb4f/nIgvHoSDVAk.jpg?size=50x0&quality=88&crop=80,80,479,479&sign=ea9652cc33b08305f697fa95aaec0746&c_uniq_tag=6w91SjNslrPpdrjRgB_W2Lw8C2mYTM4eNixBULLN0CY&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Эхо Москвы</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club60556804">club60556804</a> 👥</h6>
+        </div>
+        </div>
+        <div id="vk_activity_pie_club60556804" style="width: 395px; height: auto;"></div>
         </div>
         </div>
         
@@ -880,8 +2974,15 @@
 
         <div class="club24136539 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club24136539">club24136539</a></h5>
-        <h6 style="max-width: 400px;">ВЕСТИ</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-28.userapi.com/impf/c858216/v858216961/e5101/d5vviuGZXc4.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=1e3a97bfeff34d33aa9708a629b953a2&c_uniq_tag=D2k3vN7WgYwQqCesNbe-MV6xUXjJvX083jYzrly-51I&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24136539">club24136539</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_24136539.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -890,8 +2991,15 @@
 
         <div class="club26284064 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club26284064">club26284064</a></h5>
-        <h6 style="max-width: 400px;">ТАСС</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-22.userapi.com/impg/WTIwEYE9IXfgcFpZJQem1A7srNVSzWL9Fxwt8A/H353afd9uQI.jpg?size=50x0&quality=88&crop=0,0,512,512&sign=3dc501eb80a2478fccf088da48e3df4e&c_uniq_tag=F0AaOqq53UutwmD4OI-XzWbHiRBhTjZcYZA-nX1Dv44&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ТАСС</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club26284064">club26284064</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_26284064.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -900,8 +3008,15 @@
 
         <div class="club15548215 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club15548215">club15548215</a></h5>
-        <h6 style="max-width: 400px;">ВЕДОМОСТИ</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-88.userapi.com/impf/TXSwJdhV1jUZ4idTlHmDw_lPxr_VyTO2dR3Vew/ETEyWeI_yyI.jpg?size=50x0&quality=88&crop=0,0,800,800&sign=25cded5d3b8e7d55abcf409b47ff75d2&c_uniq_tag=ZyXEBw0980mtskVVqoROQvDjS3ObCOjJ-98muYSijMg&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">ВЕДОМОСТИ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15548215">club15548215</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_15548215.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -910,8 +3025,15 @@
 
         <div class="club40316705 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club40316705">club40316705</a></h5>
-        <h6 style="max-width: 400px;">Новости RT на русском</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-91.userapi.com/impf/c855620/v855620039/42803/f3MAfGAnO0g.jpg?size=50x0&quality=88&crop=66,0,934,934&sign=89ca1940158e7265652a877a066586d0&c_uniq_tag=KWxpLGI25xzDOFdTOMDF4Evvtb4j5Mo2fckbdlVRVS4&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Новости RT на русском</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club40316705">club40316705</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_40316705.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -920,8 +3042,15 @@
 
         <div class="club15722194 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club15722194">club15722194</a></h5>
-        <h6 style="max-width: 400px;">Комсомольская правда - KP.RU</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-90.userapi.com/impg/vu_U9qI-eo0Pl-oYVLYUVN1lqNSvulnXG4ttjQ/0pqlJO8YBp8.jpg?size=50x0&quality=88&crop=31,31,897,897&sign=054b33ce3b728bad56e991aa343a04f1&c_uniq_tag=S-6_qUPxbAc7Ulj9EtPVPfVODxqPwlOnqvjTLflGkeE&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Комсомольская правда - KP.RU</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club15722194">club15722194</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_15722194.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -930,8 +3059,15 @@
 
         <div class="club67991642 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club67991642">club67991642</a></h5>
-        <h6 style="max-width: 400px;">Лента.ру</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-84.userapi.com/impf/c858524/v858524478/4350b/8eLhiCRsw7A.jpg?size=50x0&quality=88&crop=44,40,395,395&sign=96430f3b63fd31669c6b28b5d28c15c3&c_uniq_tag=7e4EiZxoHK5vJinnmbXNHuyGdkX7oHOfQqL0GsPyPns&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Лента.ру</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club67991642">club67991642</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_67991642.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -940,8 +3076,15 @@
 
         <div class="club33393308 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club33393308">club33393308</a></h5>
-        <h6 style="max-width: 400px;">Стартапы и бизнес</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-89.userapi.com/impf/c627624/v627624388/2dec5/_Qe8NHpg-xU.jpg?size=50x0&quality=88&crop=0,0,1000,1000&sign=798cb4d2124bd3efaff6dd5514a23e4d&c_uniq_tag=Ju1sNmZ2NXxA9AxVLqcN4nqnIYRBa2wN22nXWmQ8qiQ&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Стартапы и бизнес</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club33393308">club33393308</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_33393308.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -950,8 +3093,15 @@
 
         <div class="club24565142 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club24565142">club24565142</a></h5>
-        <h6 style="max-width: 400px;">Клуб National Geographic Россия</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-26.userapi.com/impf/5AGrdewW5U-HRLU4CiomnawabIXNmXHqc25KDw/q2eb9PpD4Y8.jpg?size=50x0&quality=88&crop=0,28,2132,2132&sign=3dad107c0410212e1a01c1650ff6c529&c_uniq_tag=y-u_7fda0nkBUE5Sx-tK-2d6VcrKwfwzrs_eaor5u9s&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Клуб National Geographic Россия</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club24565142">club24565142</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_24565142.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -960,8 +3110,15 @@
 
         <div class="club28429027 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club28429027">club28429027</a></h5>
-        <h6 style="max-width: 400px;">Cosmopolitan</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-97.userapi.com/impg/Hu63_0NoLnUa2j8ydiEsUGB-Pb1Jh_pSQTITLw/-tHdgZYR-Xg.jpg?size=50x0&quality=88&crop=0,0,400,400&sign=ce4dd92defef8ae556b7e80e8a4d57cb&c_uniq_tag=Xl8XP84SBApOLA-ISYS-f-PX1ZJd8yQVJnNb2Qbyqro&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Cosmopolitan</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28429027">club28429027</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_28429027.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -970,8 +3127,15 @@
 
         <div class="club28261334 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club28261334">club28261334</a></h5>
-        <h6 style="max-width: 400px;">TJ</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-25.userapi.com/impg/PT-PBYGkA2s84ZpTW524nMhcRKZ9WPTXNnX8Cw/uYBMvaImcuo.jpg?size=50x0&quality=88&crop=366,116,273,273&sign=14a1472a4b51b3c5a6a1fe186ee48ec1&c_uniq_tag=dUZeTpcRmZytUTI5D0rOxV7XkE8mevCuAsGnElr5etM&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">TJ</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club28261334">club28261334</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_28261334.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>
@@ -980,8 +3144,15 @@
 
         <div class="club60556804 d-inline-block">
         <div class="d-block" style="margin: 10px;">
-        <h5 style="max-width: 400px;">🎓 <a href="https://vk.com/club60556804">club60556804</a></h5>
-        <h6 style="max-width: 400px;">Эхо Москвы</h6>
+        <div class="media" style="max-width: 400px;">
+        
+            <img src="https://sun1-18.userapi.com/impf/c851032/v851032313/17bb4f/nIgvHoSDVAk.jpg?size=50x0&quality=88&crop=80,80,479,479&sign=ea9652cc33b08305f697fa95aaec0746&c_uniq_tag=6w91SjNslrPpdrjRgB_W2Lw8C2mYTM4eNixBULLN0CY&ava=1" class="mr-3" style="max-width: 30px;" />
+        
+        <div class="media-body">
+        <h5 style="max-width: 350px;">Эхо Москвы</h5>
+        <h6 style="max-width: 350px;"><a href="https://vk.com/club60556804">club60556804</a> 🎓</h6>
+        </div>
+        </div>
         <iframe src="edu_wordcloud/edu_wordcloud_60556804.svg" scorlling="no" style="width: 400px; height: 400px;" frameBorder="0">
         </iframe>
         </div>

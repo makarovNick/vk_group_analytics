@@ -14,6 +14,9 @@
 
             function drawTables() {{
                 {GOOGLE_TABLES_MAIN}
+                {GOOGLE_TABLES_LIKES}
+                {GOOGLE_TABLES_POSTS_ACTIVITY}
+                {GOOGLE_TABLES_MEDIA}
                 {GOOGLE_TABLES_POPULATION_PYRAMID}
                 {GOOGLE_TABLES_GEO}
                 {GOOGLE_TABLES_VK_ACTIVITY}
@@ -21,6 +24,7 @@
             }}
 
             function drawCharts() {{
+                {GOOGLE_CHARTS_LIKES}
                 {GOOGLE_CHARTS_VK_ACTIVITY}
             }}
         </script>
@@ -51,6 +55,50 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header" id="headingLikes">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseLikes" aria-expanded="false" aria-controls="collapseLikes">
+                            &#x25BC; Likes ♡
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseLikes" class="collapse multi-collapse" aria-labelledby="headingLikes" data-parent="#accordion">
+                    <div class="card-body">
+                        {SECTION_LIKES}
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingPosts">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapsePosts" aria-expanded="false" aria-controls="collapsePosts">
+                            &#x25BC; Posts Activity ★
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapsePosts" class="collapse multi-collapse" aria-labelledby="headingPosts" data-parent="#accordion">
+                    <div class="card-body">
+                        {SECTION_POSTS_ACTIVITY}
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingMedia">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseMedia" aria-expanded="false" aria-controls="collapseMedia">
+                            &#x25BC; Media ✵
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseMedia" class="collapse multi-collapse" aria-labelledby="headingMedia" data-parent="#accordion">
+                    <div class="card-body">
+                        {SECTION_MEDIA}
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-header" id="headingPyramid">
                     <h5 class="mb-0">

@@ -45,4 +45,5 @@ def build_chart_geo_sunburst(df, output_file):
         values='count'
     )
 
+    fig.update_layout(autosize=False, width=320, height=320)
     fig.write_html(output_file)
