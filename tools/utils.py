@@ -210,6 +210,7 @@ def get_group_posts(group_id, count=100, offset=0):
 
 
         current_count += 100
+        time.sleep(1)
 
     return posts
 
@@ -222,6 +223,8 @@ def get_group_id(screen_name):
                           access_token=Config.VK_ACCESS_TOKEN,
                           screen_name=screen_name,
                           v=Config.VK_API_VERSION)
+
+    time.sleep(0.5)
 
     return response['response']['object_id']
 

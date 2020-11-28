@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
 import asyncio
 import argparse
 import warnings
@@ -10,6 +11,7 @@ from tools.utils import (get_group_id,
 from tools.stats import (get_info_stats,
                          get_members_stats,
                          get_posts_stats)
+from tools.dump import dump_raw_data
 from parser.parser import (parse_stats)
 from config import Config
 from ui import cli, webui
@@ -64,6 +66,7 @@ async def main():
     parser.add_argument('-RUr', '--RU_reach', help='Show RU_reach count daily in table', action='store_true')
     parser.add_argument('-NRr', '--NOTRU_reach', help='Show NOTRU_reach count daily in table', action='store_true')
     parser.add_argument('--all', help='Show all statistics table', action='store_true')
+    parser.add_argument('--dump_raw_data', help='Directory name', default=None)
     args = parser.parse_args()
 
     if args.all:
@@ -78,6 +81,10 @@ async def main():
         Config.VK_ACCESS_TOKEN = args.token
 
     ids = list(map(get_group_id, groups))
+
+    if args.dump_raw_data is not None:
+        dump_raw_data(ids, args.dump_raw_data)
+        sys.exit(0)
 
     members_stats = await get_members_stats(ids,
                                             members_count=args.members_count,
