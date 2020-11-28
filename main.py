@@ -4,13 +4,10 @@ import asyncio
 import argparse
 import warnings
 
-from tools.utils import (get_group_id,
-                         date_n_days_ago,
-                         get_group_stats)
+from tools.utils import get_group_id
 from tools.stats import (get_info_stats,
-                         get_members_stats,
-                         get_posts_stats)
-from parser.parser import (parse_stats)
+                        get_members_stats,
+                        get_posts_stats)
 from config import Config
 from ui import cli, webui
 
@@ -19,7 +16,7 @@ warnings.filterwarnings('ignore')
 
 async def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--groups', action='store', type=str, nargs='+')
+    parser.add_argument('groups', action='store', type=str, nargs='+')
     parser.add_argument('-w', '--web', help='Generate interactive web ui', action='store_true')
     parser.add_argument('-t', '--token', help='Access token', action='store', type=str)
     parser.add_argument('-d', '--n_days', type=int, default=7, action='store', help='Days for statistics')
@@ -68,7 +65,7 @@ async def main():
 
     if args.all:
         for arg in vars(args):
-            if isinstance(getattr(args, arg) , bool) and arg != 'web':
+            if isinstance(getattr(args, arg), bool) and arg != 'web':
                 setattr(args, arg, True)
 
     days = args.n_days
@@ -86,14 +83,12 @@ async def main():
                                             common_users=args.common_users)
 
     # members_stats = None
-    post_stats = get_posts_stats(
-        ids,
-        posts_per_day=args.posts_per_day,
-        views_per_post=args.views_per_post,
-        likes_per_post=args.likes_per_post,
-        n_posts=100,
-        n_days=2,
-        )
+    post_stats = get_posts_stats(ids,
+                                 posts_per_day=args.posts_per_day,
+                                 views_per_post=args.views_per_post,
+                                 likes_per_post=args.likes_per_post,
+                                 n_posts=100,
+                                 n_days=2)
 
     info_stats = get_info_stats(
         ids,
@@ -133,16 +128,9 @@ async def main():
 
     if not web:
         cli.draw_table(groups, post_stats, members_stats, info_stats)
-        # date_ago = date_n_days_ago(3).timestamp()
-        # stats = [parse_stats(get_group_stats(id, date_ago))
-                #  for id in ids]
-        # cli.draw_plot(list(range(3)),
-        #               [a['likes'] for a in stats[0]],
-        #               x_label="days_ago",
-        #               label="likes daily",
-        #               y_label='likes')
     else:
-        webui.make_dash(groups, post_stats=post_stats,
+        webui.make_dash(groups,
+                        post_stats=post_stats,
                         member_stats=members_stats,
                         info_stats=info_stats)
 

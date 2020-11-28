@@ -120,7 +120,7 @@ async def async_get_members(group_id, count=-1, offset=0, fields=[]):
     if count == -1:
         count = get_group_info(group_id, fields=['members_count'])['members_count']
     async with aiohttp.ClientSession() as session:
-        for j in track(range(0, count, COUNT_AT_TIME), description='Requesting members...'):
+        for j in track(range(offset, count, COUNT_AT_TIME), description='Requesting members...'):
             members.extend(await asyncio.gather(
                 *[__async_get_members(group_id, session, count=count, offset=i, fields=fields)
                   for i in range(j, min(count, j + COUNT_AT_TIME), max_api_calls * 1000)]
@@ -133,7 +133,7 @@ async def async_get_members(group_id, count=-1, offset=0, fields=[]):
 
 def get_group_stats(group_id,
                     timestamp_from,
-                    timestamp_to=datetime.today().timestamp()):#.replace(hour=0, minute=0, second=0, microsecond=0).timestamp()):
+                    timestamp_to=datetime.today().timestamp()):
     '''Возвращает статистику сообщества или приложения. vk.api : stats.get
     group_id -- идентификатор сообщества.
     timestamp_from -- начало периода статистики в Unixtime.
@@ -222,6 +222,9 @@ def get_group_id(screen_name):
                           access_token=Config.VK_ACCESS_TOKEN,
                           screen_name=screen_name,
                           v=Config.VK_API_VERSION)
+
+    if not response['response']:
+        raise VKBadRequest(f'No group named {screen_name}')
 
     return response['response']['object_id']
 

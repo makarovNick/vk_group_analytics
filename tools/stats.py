@@ -17,13 +17,14 @@ async def get_members_stats(groups_id,
     stats = [{} for _ in groups_id]
     if not (members_count and mean_age and inactive_users and common_users):
         return stats
-    fields = ['status', 'start_date', 'members_count', 
+    fields = ['status', 'start_date', 'members_count',
               'description', 'counters', 'country', 'activity']
     infos = [get_group_info(id, fields) for id in groups_id]
 
-    fields = ['sex', 'bdate', 'city', 
+    fields = ['sex', 'bdate', 'city',
               'country', 'online', 'education', 'last_seen']
-    members = [list(map(parse_user, await async_get_members(g, count=-1, fields=fields))) for g in groups_id]
+    members = [list(map(parse_user,
+                        await async_get_members(g, count=-1, fields=fields))) for g in groups_id]
 
     if common_users and len(groups_id) == 2:
         stats[0]['common_users'] = len(snp.kway_intersect(np.array([i['id'] for i in members[0]]),
